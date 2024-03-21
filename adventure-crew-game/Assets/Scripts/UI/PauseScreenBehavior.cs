@@ -17,7 +17,7 @@ public class PauseScreenBehavior : UIMenu
         }
     }
 
-    void PauseGame()
+    public void PauseGame()
     {
         _isPaused = !_isPaused;
         if (_isPaused)
