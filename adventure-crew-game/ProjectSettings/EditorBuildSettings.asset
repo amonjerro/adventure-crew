@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: 74484776147af5042a746339fa8c967b
+  - enabled: 1
+    path: Assets/Scenes/TestPause.unity
+    guid: c894ee99c6ac3df45bc6a644dd499054
   m_configObjects: {}
