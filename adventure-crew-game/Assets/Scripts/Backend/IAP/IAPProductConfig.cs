@@ -20,12 +20,5 @@ namespace Backend.IAP
             var product = GetProductById(id);
             return product?.Purchased ?? false;
         }
-
-        [ContextMenu("To JSON")]
-        public void ToJson()
-        {
-            var json = JsonUtility.ToJson(this, true);
-            Debug.Log(json);
-        }
     }
 }
