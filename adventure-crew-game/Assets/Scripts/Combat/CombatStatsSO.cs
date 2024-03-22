@@ -5,9 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AData", menuName = "ScriptableObjects/CombatStats", order = 1)]
 public class CombatStatsSO : ScriptableObject
 {
-    public int HP;
-    public int Damage;
-    public int Agility;
-    public float Range;
+    public Stats stats;
+    public void SetStats(int HP, int maxHP, int Damage, int Agility, float Range)
+    {
+        stats.HP = HP;
+        stats.Damage = Damage;
+        stats.Agility = Agility;
+        stats.Range = Range;
+    }
 
 }

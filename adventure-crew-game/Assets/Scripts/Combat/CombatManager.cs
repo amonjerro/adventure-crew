@@ -19,6 +19,10 @@ public class CombatManager : MonoBehaviour
     #endregion
     private void Start()
     {
+        BattlefiledInitialization();
+    }
+    public void BattlefiledInitialization() 
+    {
         if (!StartCombat())
         {
             Debug.Log("Not able to start the game");
@@ -95,5 +99,14 @@ public class CombatManager : MonoBehaviour
     public void CombatOver()
     {
         Debug.Log("Combat over!!!");
+        if (adventurers.Count == 0)
+        {
+            print("You lose!!!");
+        }
+        else if (enemies.Count == 0)
+        {
+            print("You won!!!");
+        }
+        else Debug.LogWarning("If you get this message, there is a bug, Tsingtao");
     }
 }

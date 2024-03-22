@@ -4,8 +4,8 @@ using UnityEngine;
 public class CombatEntity : MonoBehaviour
 {
     public CombatEntity target = null;
-    public Stats stats;
-    public float cooldown = 1.0f;
+    protected Stats stats;
+    private float cooldown;
     private float timer = 0.0f;
     public enum CurrentAction
     {
@@ -17,8 +17,13 @@ public class CombatEntity : MonoBehaviour
 
     void Start()
     {
+        EntityInitializer();
+    }
+    private void EntityInitializer()
+    {
         //tag check
         if (CompareTag("Adventurer") == false && CompareTag("Enemy") == false) Debug.LogWarning("This entity is set to the wrong tag");
+        cooldown = 1.0f / stats.Agility;
     }
 
     public void DecideCombatAction()
@@ -113,8 +118,23 @@ public class CombatEntity : MonoBehaviour
         Debug.Log(gameObject.name + "'s HP: " + stats.HP);
 
         //am I dead?
-        if (stats.HP <= 0) Die();
+        if (stats.HP <= 0)
+        {
+            stats.HP = 0;
+            Die();
+        }
+
+        OnStatsChanged();
     }
+    virtual protected void OnStatsChanged()
+    {
+        //This function is for modifying adventurer's stats in scriptable object
+        //for enemy, this function can left blank
+        if(StatsChanged != null) StatsChanged();
+    }
+
+    public Action StatsChanged;
+    //This action is subscribed by: HealthBar
 
     private void TurnToTarget(Vector3 lookPos)
     {
@@ -128,7 +148,7 @@ public class CombatEntity : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         switch (currentAction)
         {
