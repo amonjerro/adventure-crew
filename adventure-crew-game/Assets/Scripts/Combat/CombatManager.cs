@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
@@ -43,8 +44,53 @@ public class CombatManager : MonoBehaviour
     }
     public void InitializeEntities()
     {
-        foreach (CombatEntity entity in adventurers) entity.DecideCombatState();
-        foreach (CombatEntity entity in enemies) entity.DecideCombatState();
+        foreach (CombatEntity entity in adventurers) entity.DecideCombatAction();
+        foreach (CombatEntity entity in enemies) entity.DecideCombatAction();
+    }
+
+    public CombatEntity GetOpponent(Vector3 selfPos, string tagName)
+    {
+        if (tagName == "Adventurer")
+        {
+            return GetClosestOpponent(selfPos, enemies);
+        }
+        else if (tagName == "Enemy")
+        {
+            return GetClosestOpponent(selfPos, adventurers);
+        }
+        else
+        {
+            Debug.LogError("Wrong tag name!");
+            return null;
+        }
+    }
+    private CombatEntity GetClosestOpponent(Vector3 selfPos, List<CombatEntity> opponents)
+    {
+        if (opponents.Count == 0) return null; //check there still are opponents in the scene
+
+        CombatEntity target = null;
+        float distance = float.MaxValue;
+        foreach (CombatEntity opponent in opponents)
+        {
+            if ((opponent.transform.position - selfPos).magnitude < distance)
+            {
+                target = opponent;
+                distance = (opponent.transform.position - selfPos).magnitude;
+            }
+        }
+        return target;
+    }
+
+    public void DestroyAnEntity(CombatEntity entity, string tagName)
+    {
+        if (tagName == "Adventurer")
+        {
+            adventurers.Remove(entity);
+        }
+        else if (tagName == "Enemy")
+        {
+            enemies.Remove(entity);
+        }
     }
     public void CombatOver()
     {

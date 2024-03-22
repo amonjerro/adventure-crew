@@ -1,6 +1,6 @@
 public struct Stats
 {
-    public int HP { get; private set; }
+    public int HP { get; set; }
     public int Damage { get; private set; }
     public int Agility { get; private set; }
     public float Range { get; private set; }

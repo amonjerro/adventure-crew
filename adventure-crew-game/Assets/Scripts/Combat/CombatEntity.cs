@@ -1,114 +1,131 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class CombatEntity : MonoBehaviour
 {
     public CombatEntity target = null;
     public Stats stats;
-
+    public float cooldown = 1.0f;
+    private float timer = 0.0f;
     public enum CurrentAction
     {
         idle,
         moving,
         attacking
     }
-    public CurrentAction currentAction;
+    public CurrentAction currentAction = CurrentAction.idle;
 
     void Start()
     {
         //tag check
         if (CompareTag("Adventurer") == false && CompareTag("Enemy") == false) Debug.LogWarning("This entity is set to the wrong tag");
-        currentAction = CurrentAction.idle;
     }
 
-    public void DecideCombatState()
+    public void DecideCombatAction()
     {
         currentAction = CurrentAction.idle;
         if (target == null)
         {
-            FindTarget();
+            if(FindTarget()) DecideCombatAction();
             //if can't find any opponent, then the combat is over
-            if (target == null) CombatManager.Instance.CombatOver();
-            else DecideCombatState();
+            else CombatManager.Instance.CombatOver();
         }
         else // move or attack
         {
-            Debug.Log("Distance: " + (target.transform.position - transform.position).magnitude);
+            //Debug.Log("Distance: " + (target.transform.position - transform.position).magnitude);
 
-            if ((target.transform.position - transform.position).magnitude > stats.Range) currentAction = CurrentAction.moving;
+            if ((target.transform.position - transform.position).magnitude > stats.Range) 
+            {
+                Debug.Log(gameObject.name + "'s action should be moving");
+                currentAction = CurrentAction.moving; 
+            }
 
             else currentAction = CurrentAction.attacking;
         }
         
     }
 
-    public void FindTarget()
+    virtual public bool FindTarget()
     {
-        if (CompareTag("Adventurer"))
-        {
-            target = GetClosestOpponent(CombatManager.Instance.enemies);
-        }
-        else if (CompareTag("Enemy"))
-        {
-            target = GetClosestOpponent(CombatManager.Instance.adventurers);
-        }
+        target = CombatManager.Instance.GetOpponent(transform.position, tag);
+        return target != null;
+        //if we are going to add a healer, we can override this method
+        //and pass in the Enemy tag, so the healer find the target among adventurers
     }
-    private CombatEntity GetClosestOpponent(List<CombatEntity> opponents)
-    {
-        if (opponents.Count == 0) return null; //check there still are opponents in the scene
-
-        float distance = float.MaxValue;
-        foreach (CombatEntity opponent in opponents)
-        {
-            if ((opponent.transform.position - transform.position).magnitude < distance)
-            {
-                target = opponent;
-            }
-        }
-        return target;
-    }
+    
 
     private bool MoveCheck()
     {
         if (target == null)
         {
-            DecideCombatState();
+            DecideCombatAction();
             return false;
         }
         if ((target.transform.position - transform.position).magnitude < stats.Range)
         {
-            DecideCombatState();
+            DecideCombatAction();
             return false;
         }
         return true;
     }
     public void Move(int agility)
     {
-        Debug.Log(gameObject.name + " Moving");
+        //Debug.Log(gameObject.name + " Moving");
         Vector3 moveDir = (target.transform.position - transform.position).normalized;
         transform.position += moveDir * agility * Time.deltaTime;
         transform.LookAt(target.transform.position);
-
     }
 
     private bool AttackCheck()
     {
         if (target == null)
         {
-            DecideCombatState();
+            DecideCombatAction();
             return false;
         }
         if ((target.transform.position - transform.position).magnitude > stats.Range)
         {
-            DecideCombatState();
+            DecideCombatAction();
             return false;
         }
         return true;
     }
     public void Attack(int damage)
     {
+        if (timer <= 0.0) 
+        {
+            timer = cooldown;
+            target.TakeDamage(damage);
 
+            //visual
+            TurnToTarget(target.transform.position);
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Debug.Log("Got damage " + damage);
+        stats.HP -= damage;
+        Debug.Log(gameObject.name + "'s HP: " + stats.HP);
+
+        //am I dead?
+        if (stats.HP <= 0) Die();
+    }
+
+    private void TurnToTarget(Vector3 lookPos)
+    {
+        transform.LookAt(lookPos);
+    }
+
+    private void Die()
+    {
+        //Debug.Log("I die!");
+        CombatManager.Instance.DestroyAnEntity(this, tag);
+        Destroy(gameObject);
     }
 
     private void FixedUpdate()

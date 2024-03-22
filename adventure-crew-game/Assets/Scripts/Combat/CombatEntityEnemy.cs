@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CombatEntityEnemy : CombatEntity
 {
-    public int HP;
+    public int iniHP;
     public int Damage;
     public int Agility;
     public float Range;
 
     private void Awake()
     {
-        stats = new Stats(HP, Damage, Agility, Range);
+        stats = new Stats(iniHP, Damage, Agility, Range);
     }
 }
