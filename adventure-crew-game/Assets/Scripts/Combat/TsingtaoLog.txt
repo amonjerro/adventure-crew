@@ -1,0 +1,5 @@
+0322
+About the Stats, now it only contains the combat stats, should we also include XP, Level and Rank (S, A, B, etc) to Stats?
+
+For me, I used CombatStatsSO to contain data in different scenes.
+To debug without resetting the SO everytime, just tick the "Debug" checkbox on every CombatEntityAdventurer, so they will not write data to SO, but only read.
