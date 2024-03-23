@@ -1713,14 +1713,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2949792457663098282}
         m_TargetAssemblyTypeName: Test.IAP.IAPDummyUI, Assembly-CSharp
-        m_MethodName: ResetPurchases
-        m_Mode: 1
+        m_MethodName: TryPurchaseProduct
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Product5
+          m_StringArgument: Product2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3756017085637572455
@@ -2142,14 +2142,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2949792457663098282}
         m_TargetAssemblyTypeName: Test.IAP.IAPDummyUI, Assembly-CSharp
-        m_MethodName: ResetPurchases
-        m_Mode: 1
+        m_MethodName: TryPurchaseProduct
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Product5
+          m_StringArgument: Product4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4372000545301956464
@@ -2276,14 +2276,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2949792457663098282}
         m_TargetAssemblyTypeName: Test.IAP.IAPDummyUI, Assembly-CSharp
-        m_MethodName: ResetPurchases
-        m_Mode: 1
+        m_MethodName: TryPurchaseProduct
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Product5
+          m_StringArgument: Product1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4431574424859118923
@@ -2863,14 +2863,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2949792457663098282}
         m_TargetAssemblyTypeName: Test.IAP.IAPDummyUI, Assembly-CSharp
-        m_MethodName: ResetPurchases
-        m_Mode: 1
+        m_MethodName: TryPurchaseProduct
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Product5
+          m_StringArgument: Product3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5233618044486083706
@@ -3672,8 +3672,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2949792457663098282}
         m_TargetAssemblyTypeName: Test.IAP.IAPDummyUI, Assembly-CSharp
-        m_MethodName: ResetPurchases
-        m_Mode: 1
+        m_MethodName: TryPurchaseProduct
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
