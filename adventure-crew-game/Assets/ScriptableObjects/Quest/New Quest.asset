@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ad044bf2831fd4eb89bb40d1e7ebd6, type: 3}
+  m_Name: New Quest
+  m_EditorClassIdentifier: 
+  description: This is a test quest
+  questTitle: Test Quest
+  encounters:
+  - {fileID: 11400000, guid: 3726628b85d82614a940cf30ca24b9b3, type: 2}
+  - {fileID: 11400000, guid: ddb8f693f97aa99448e73a4440aca0e8, type: 2}

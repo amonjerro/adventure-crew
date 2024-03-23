@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4352e4335ae4b3b88c4fc7dd81fad29, type: 3}
+  m_Name: Test IAP Product Config
+  m_EditorClassIdentifier: 
+  products:
+  - id: Product1
+    name: Product 1
+    description: Random
+    price: $5.00
+  - id: Product2
+    name: Product 2
+    description: Stuff
+    price: $7.00
+  - id: Product3
+    name: Product 3
+    description: I
+    price: $4.00
+  - id: Product4
+    name: Product 4
+    description: Wanna
+    price: $6.00
+  - id: Product5
+    name: Product 5
+    description: Put
+    price: $1.00
