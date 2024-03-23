@@ -19,7 +19,7 @@ MonoBehaviour:
     price: $5.00
   - id: Product2
     name: Product 2
-    description: Stuff
+    description: S@#t
     price: $7.00
   - id: Product3
     name: Product 3

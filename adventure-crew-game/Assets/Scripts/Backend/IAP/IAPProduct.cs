@@ -17,7 +17,7 @@ namespace Backend.IAP
         public string Price => price;
         public bool Purchased { get; private set; }
 
-        public void Init()
+        internal void Init()
         {
             Purchased = PlayerPrefs.GetInt(id, 0) == 1;
         }
@@ -27,6 +27,12 @@ namespace Backend.IAP
             // Purchase logic
             Purchased = true;
             PlayerPrefs.SetInt(id, 1);
+        }
+        
+        internal void ResetPurchase()
+        {
+            Purchased = false;
+            PlayerPrefs.SetInt(id, 0);
         }
     }
 }
