@@ -54,6 +54,16 @@ namespace Backend.IAP
             onPurchase?.Invoke(true);
         }
 
+        public void ResetPurchases()
+        {
+            var products = GetProducts();
+
+            foreach (var product in products)
+            {
+                product.ResetPurchase();
+            }
+        }
+
         public void ToggleVisibility()
         {
             IAPUI.SetActive(!IAPUI.activeInHierarchy);

@@ -9,12 +9,6 @@ namespace Test.IAP
     {
         [SerializeField] private GameObject[] productsUI;
 
-        public void TryPurchaseProduct(string id)
-        {
-            // Purchase logic
-            IAPManager.Instance.TryPurchaseProduct(id, success => { Debug.Log(success ? $"Purchased product with ID: {id}" : $"Failed to purchase product with ID: {id}"); });
-        }
-
         private void Start()
         {
             var products = IAPManager.Instance.GetProducts();
@@ -47,6 +41,17 @@ namespace Test.IAP
                 // This is a quick way to do this don't do this in production.
                 productUI.GetComponentInChildren<Button>().interactable = !product.Purchased;
             }
+        }
+
+        public void TryPurchaseProduct(string id)
+        {
+            // Purchase logic
+            IAPManager.Instance.TryPurchaseProduct(id, success => { Debug.Log(success ? $"Purchased product with ID: {id}" : $"Failed to purchase product with ID: {id}"); });
+        }
+        
+        public void ResetPurchases()
+        {
+            IAPManager.Instance.ResetPurchases();
         }
     }
 }
