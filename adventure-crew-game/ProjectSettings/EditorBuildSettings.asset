@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: 74484776147af5042a746339fa8c967b
   - enabled: 1
-    path: Assets/Scenes/TestPause.unity
-    guid: c894ee99c6ac3df45bc6a644dd499054
+    path: Assets/Scenes/MapScene.unity
+    guid: 8891423f18651f44398de9ece066f2af
+  - enabled: 1
+    path: Assets/Scenes/Tsingtao/Battlefield-Non-Test.unity
+    guid: 0b68a522b74fa5c4ab7a2774e0e6eed0
   m_configObjects: {}

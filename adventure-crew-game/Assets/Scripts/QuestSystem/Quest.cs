@@ -8,7 +8,18 @@ public class Quest : ScriptableObject
     [TextArea]
     public string description;
     public string questTitle;
+    private bool _isComplete = false;
 
     public List<Encounter> encounters;
     private Encounter activeEncounter;
+
+    public void CompleteQuest()
+    {
+        _isComplete = true;
+    }
+
+    public bool isQuestComplete()
+    {
+        return _isComplete;
+    }
 }

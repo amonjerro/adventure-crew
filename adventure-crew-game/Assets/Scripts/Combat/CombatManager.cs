@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -98,6 +99,10 @@ public class CombatManager : MonoBehaviour
     }
     public void CombatOver()
     {
+
+        // Note by Ed: this needs to be completely reworked. There should be a canvas UI element that pops up, shows
+        // the player the results and then gives them a button to return to the map scene at their leisure.
+        // for now though, it will have to do.
         Debug.Log("Combat over!!!");
         if (adventurers.Count == 0)
         {
@@ -108,5 +113,8 @@ public class CombatManager : MonoBehaviour
             print("You won!!!");
         }
         else Debug.LogWarning("If you get this message, there is a bug, Tsingtao");
+
+        //Back to the map scene we go.
+        SceneManager.LoadScene(1);
     }
 }

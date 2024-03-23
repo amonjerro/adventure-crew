@@ -7,20 +7,24 @@ public class MapLocation : MonoBehaviour
     [SerializeField]
     private string locationName;
 
+    [SerializeField]
+    List<Quest> quests;
+
     public string LocationName
     {
         get { return locationName; }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public Quest GetNextQuest()
     {
-        
+        for (int i = 0; i < quests.Count; i++)
+        {
+            if (!quests[i].isQuestComplete())
+            {
+                return quests[i];
+            }
+        }
+        return null;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
