@@ -6,7 +6,6 @@ namespace Backend.IAP
     public class IAPManager : MonoBehaviour
     {
         public static IAPManager Instance { get; private set; }
-        public GameObject IAPUI;
         [SerializeField] private IAPProductConfig productConfig;
 
         private void Awake()
@@ -62,11 +61,6 @@ namespace Backend.IAP
             {
                 product.ResetPurchase();
             }
-        }
-
-        public void ToggleVisibility()
-        {
-            IAPUI.SetActive(!IAPUI.activeInHierarchy);
         }
     }
 }

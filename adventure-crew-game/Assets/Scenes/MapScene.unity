@@ -222,9 +222,9 @@ RectTransform:
   - {fileID: 1966109125}
   - {fileID: 1932153896}
   - {fileID: 142480191}
-  - {fileID: 798493718}
   - {fileID: 747809105}
   - {fileID: 381641038}
+  - {fileID: 798493718}
   - {fileID: 1307276723}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -913,17 +913,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1088799199}
-        m_TargetAssemblyTypeName: Backend.IAP.IAPManager, Assembly-CSharp
-        m_MethodName: ToggleVisibility
-        m_Mode: 1
+      - m_Target: {fileID: 897539422}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &747809107
 MonoBehaviour:
@@ -1579,18 +1579,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dd121bb7a84b06499154b88624937a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1088799199 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3840864678829370282, guid: 836b3d71b59fe8b4fba4a126b9ae6c04,
-    type: 3}
-  m_PrefabInstance: {fileID: 400436003}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a34fc3ae9723c140af6c4e6a17fd63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1307276723 stripped
