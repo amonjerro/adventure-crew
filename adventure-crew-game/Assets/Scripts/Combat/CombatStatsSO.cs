@@ -6,6 +6,7 @@ using UnityEngine;
 public class CombatStatsSO : ScriptableObject
 {
     public Stats stats;
+    public int xp;
     public void SetStats(int HP, int maxHP, int Damage, int Agility, float Range)
     {
         stats.HP = HP;
