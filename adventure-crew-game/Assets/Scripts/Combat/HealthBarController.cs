@@ -17,6 +17,7 @@ public class HealthBarController : MonoBehaviour
     }
     private void OnDisable()
     {
+        print("OnDisable called");
         GetComponentInParent<CombatEntity>().StatsChanged -= UpdateHealthBar;
     }
 
