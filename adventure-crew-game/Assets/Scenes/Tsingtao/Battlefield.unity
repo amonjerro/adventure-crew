@@ -513,6 +513,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1673609163}
     m_Modifications:
+    - target: {fileID: 1349355284662389056, guid: e18afd79314413d4582124d271ef47f9,
+        type: 3}
+      propertyPath: Damage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2884193094368436084, guid: e18afd79314413d4582124d271ef47f9,
         type: 3}
       propertyPath: m_Name
@@ -526,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 6802056479653566376, guid: e18afd79314413d4582124d271ef47f9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2282917
+      value: -1.46
       objectReference: {fileID: 0}
     - target: {fileID: 6802056479653566376, guid: e18afd79314413d4582124d271ef47f9,
         type: 3}
@@ -723,6 +728,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1673609163}
     m_Modifications:
+    - target: {fileID: 1349355284662389056, guid: e18afd79314413d4582124d271ef47f9,
+        type: 3}
+      propertyPath: Damage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2884193094368436084, guid: e18afd79314413d4582124d271ef47f9,
         type: 3}
       propertyPath: m_Name
@@ -1206,6 +1216,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1673609163}
     m_Modifications:
+    - target: {fileID: 1349355284662389056, guid: e18afd79314413d4582124d271ef47f9,
+        type: 3}
+      propertyPath: Damage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2884193094368436084, guid: e18afd79314413d4582124d271ef47f9,
         type: 3}
       propertyPath: m_Name
@@ -1219,7 +1234,7 @@ PrefabInstance:
     - target: {fileID: 6802056479653566376, guid: e18afd79314413d4582124d271ef47f9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.198292
+      value: -3.85
       objectReference: {fileID: 0}
     - target: {fileID: 6802056479653566376, guid: e18afd79314413d4582124d271ef47f9,
         type: 3}
@@ -1292,7 +1307,7 @@ PrefabInstance:
     - target: {fileID: 6802056479653566376, guid: e18afd79314413d4582124d271ef47f9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.47
+      value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 6802056479653566376, guid: e18afd79314413d4582124d271ef47f9,
         type: 3}
@@ -1411,11 +1426,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CombatEntityAdventurer
-      objectReference: {fileID: 0}
-    - target: {fileID: 6562834704532958986, guid: 2d00be807bcfe0c40ae40ca49a7483ff,
-        type: 3}
-      propertyPath: Debug
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

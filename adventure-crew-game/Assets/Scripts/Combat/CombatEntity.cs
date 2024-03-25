@@ -130,11 +130,11 @@ public class CombatEntity : MonoBehaviour
     {
         //This function is for modifying adventurer's stats in scriptable object
         //for enemy, this function can left blank
-        if(StatsChanged != null) StatsChanged();
+        if(StatsChanged != null) StatsChanged(stats.HP, stats.MaxHP);
     }
 
-    public Action StatsChanged;
-    //This action is subscribed by: HealthBar
+    public Action<float, float> StatsChanged;
+    //This action is subscribed by: HealthBarController
 
     private void TurnToTarget(Vector3 lookPos)
     {
