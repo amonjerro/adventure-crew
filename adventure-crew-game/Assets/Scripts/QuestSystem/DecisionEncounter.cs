@@ -8,6 +8,7 @@ public class DecisionEncounter : Encounter
     public string decision1Text;
     public string decision2Text;
     public GameObject decisionUI;
+    public int XP;
     
     public override void OnStart()
     {
@@ -17,6 +18,11 @@ public class DecisionEncounter : Encounter
     public override void OnEnd()
     {
 
+    }
+
+    public override int CalculateXPReward()
+    {
+        return XP;
     }
 
     public void Decision1()

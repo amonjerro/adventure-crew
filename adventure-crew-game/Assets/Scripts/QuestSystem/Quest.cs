@@ -12,6 +12,8 @@ public class Quest : ScriptableObject
 
     public List<Encounter> encounters;
     private Encounter activeEncounter;
+    [SerializeField]
+    public Reward reward;
 
     public void CompleteQuest()
     {
@@ -21,5 +23,17 @@ public class Quest : ScriptableObject
     public bool isQuestComplete()
     {
         return _isComplete;
+    }
+
+    public void SetActiveEncounter(int index)
+    {
+        activeEncounter = encounters[index];
+        reward.SetXPReward(activeEncounter.CalculateXPReward());
+    }
+
+    public Reward CompleteEncounter()
+    {
+        activeEncounter.OnEnd();
+        return reward;
     }
 }
