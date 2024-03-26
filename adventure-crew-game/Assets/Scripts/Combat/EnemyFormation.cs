@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class EnemyFormation : ScriptableObject
 
 }
 
+[Serializable]
 public struct FormationStruct
 {
 
