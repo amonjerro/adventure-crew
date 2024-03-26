@@ -37,11 +37,8 @@ public class CombatEntity : MonoBehaviour
         }
         else // move or attack
         {
-            //Debug.Log("Distance: " + (target.transform.position - transform.position).magnitude);
-
             if ((target.transform.position - transform.position).magnitude > stats.Range) 
             {
-                Debug.Log(gameObject.name + "'s action should be moving");
                 currentAction = CurrentAction.moving; 
             }
 
@@ -113,9 +110,7 @@ public class CombatEntity : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Got damage " + damage);
         stats.HP -= damage;
-        Debug.Log(gameObject.name + "'s HP: " + stats.HP);
 
         //am I dead?
         if (stats.HP <= 0)
@@ -130,11 +125,11 @@ public class CombatEntity : MonoBehaviour
     {
         //This function is for modifying adventurer's stats in scriptable object
         //for enemy, this function can left blank
-        if(StatsChanged != null) StatsChanged();
+        if(StatsChanged != null) StatsChanged(stats.HP, stats.MaxHP);
     }
 
-    public Action StatsChanged;
-    //This action is subscribed by: HealthBar
+    public Action<float, float> StatsChanged;
+    //This action is subscribed by: HealthBarController
 
     private void TurnToTarget(Vector3 lookPos)
     {
@@ -143,8 +138,12 @@ public class CombatEntity : MonoBehaviour
 
     private void Die()
     {
-        //Debug.Log("I die!");
         CombatManager.Instance.DestroyAnEntity(this, tag);
+
+        if (transform.GetComponentInChildren<HealthBarController>() != null)
+        {
+            transform.GetComponentInChildren<HealthBarController>().UnsubscribeEvents();
+        }
         Destroy(gameObject);
     }
 
