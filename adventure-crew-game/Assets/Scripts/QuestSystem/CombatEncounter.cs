@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class CombatEncounter : Encounter
 {
     //To do: Add enemy entities for combat
-    public List<CombatStatsSO> enemies;
-
+    EnemyFormation enemyFormation;
     public override void OnEnd()
     {
 
