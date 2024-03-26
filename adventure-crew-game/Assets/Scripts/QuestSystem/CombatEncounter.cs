@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(menuName = "SOs/CombatEncounter")]
 public class CombatEncounter : Encounter
@@ -15,16 +16,7 @@ public class CombatEncounter : Encounter
 
     public override void OnStart()
     {
-
+        SceneManager.LoadScene(2);
     }
 
-    public override int CalculateXPReward()
-    {
-        int sum = 0;
-        foreach(CombatStatsSO enemy in enemies)
-        {
-            sum += enemy.xp;
-        }
-        return sum;
-    }
 }
