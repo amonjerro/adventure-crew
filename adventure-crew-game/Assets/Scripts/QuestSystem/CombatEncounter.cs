@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(menuName = "SOs/CombatEncounter")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Quests/CombatEncounter")]
 public class CombatEncounter : Encounter
 {
     //To do: Add enemy entities for combat

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SOs/Quest")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Quests/Quest")]
 public class Quest : ScriptableObject
 {
     [TextArea]
