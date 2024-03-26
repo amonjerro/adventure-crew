@@ -17,7 +17,13 @@ public class HealthBarController : MonoBehaviour
     }
     private void OnDisable()
     {
-        print("OnDisable called");
+        if(GetComponentInParent<CombatEntity>() != null)
+        {
+            UnsubscribeEvents();
+        }
+    }
+    public void UnsubscribeEvents()
+    {
         GetComponentInParent<CombatEntity>().StatsChanged -= UpdateHealthBar;
     }
 
@@ -27,7 +33,7 @@ public class HealthBarController : MonoBehaviour
     }
     private void UpdateHealthBar(float HP, float maxHP)
     {
-        print(gameObject.name + " update health bar: " + HP / maxHP);
+        //print(gameObject.name + " update health bar: " + HP / maxHP);
         _mat.SetFloat("_Health", HP / maxHP);
     }
 }

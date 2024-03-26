@@ -37,11 +37,8 @@ public class CombatEntity : MonoBehaviour
         }
         else // move or attack
         {
-            //Debug.Log("Distance: " + (target.transform.position - transform.position).magnitude);
-
             if ((target.transform.position - transform.position).magnitude > stats.Range) 
             {
-                Debug.Log(gameObject.name + "'s action should be moving");
                 currentAction = CurrentAction.moving; 
             }
 
@@ -113,9 +110,7 @@ public class CombatEntity : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Got damage " + damage);
         stats.HP -= damage;
-        Debug.Log(gameObject.name + "'s HP: " + stats.HP);
 
         //am I dead?
         if (stats.HP <= 0)
@@ -143,8 +138,12 @@ public class CombatEntity : MonoBehaviour
 
     private void Die()
     {
-        //Debug.Log("I die!");
         CombatManager.Instance.DestroyAnEntity(this, tag);
+
+        if (transform.GetComponentInChildren<HealthBarController>() != null)
+        {
+            transform.GetComponentInChildren<HealthBarController>().UnsubscribeEvents();
+        }
         Destroy(gameObject);
     }
 
