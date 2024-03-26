@@ -36,6 +36,6 @@ public class QuestManager : MonoBehaviour
     public void LoadNextEncounter()
     {
         activeQuest.SetActiveEncounter(encounterIndex);
-        SceneManager.LoadScene(2);
+        activeQuest.StartEncounter();
     }
 }

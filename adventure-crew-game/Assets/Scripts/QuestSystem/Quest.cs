@@ -28,12 +28,21 @@ public class Quest : ScriptableObject
     public void SetActiveEncounter(int index)
     {
         activeEncounter = encounters[index];
-        reward.SetXPReward(activeEncounter.CalculateXPReward());
+    }
+
+    public int PreviewReward()
+    {
+        return reward.gold;
     }
 
     public Reward CompleteEncounter()
     {
         activeEncounter.OnEnd();
         return reward;
+    }
+
+    public void StartEncounter()
+    {
+        activeEncounter.OnStart();
     }
 }
