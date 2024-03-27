@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemyEntity = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             enemyEntity.transform.SetParent(transform);
             CombatEntityEnemy enemyEntityComponent = enemyEntity.GetComponent<CombatEntityEnemy>();
+            enemyEntityComponent.SetStats(fs.enemy);
+            enemyEntity.transform.localPosition = fs.position;
         }
     }
 }
