@@ -9,6 +9,8 @@ namespace Test.IAP
     {
         [SerializeField] private GameObject[] productsUI;
 
+        private string _currentProductID;
+
         private void Start()
         {
             var products = IAPManager.Instance.GetProducts();
@@ -43,12 +45,18 @@ namespace Test.IAP
             }
         }
 
-        public void TryPurchaseProduct(string id)
+        public void SetCurrentProductID(string id)
+        {
+            _currentProductID = id;
+        }
+
+        public void TryPurchaseProduct()
         {
             // Purchase logic
-            IAPManager.Instance.TryPurchaseProduct(id, success => { Debug.Log(success ? $"Purchased product with ID: {id}" : $"Failed to purchase product with ID: {id}"); });
+            IAPManager.Instance.TryPurchaseProduct(_currentProductID,
+                success => { Debug.Log(success ? $"Purchased product with ID: {_currentProductID}" : $"Failed to purchase product with ID: {_currentProductID}"); });
         }
-        
+
         public void ResetPurchases()
         {
             IAPManager.Instance.ResetPurchases();
