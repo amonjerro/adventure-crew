@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   products:
   - id: Product1
-    name: Product 1
+    name: 100 Gold
     description: Random
-    price: $5.00
-  - id: Product2
-    name: Product 2
-    description: S@#t
-    price: $7.00
-  - id: Product3
-    name: Product 3
-    description: I
-    price: $4.00
-  - id: Product4
-    name: Product 4
-    description: Wanna
-    price: $6.00
-  - id: Product5
-    name: Product 5
-    description: Put
     price: $1.00
+  - id: Product2
+    name: 500 Gold
+    description: S@#t
+    price: $5.00
+  - id: Product3
+    name: 1000 Gold
+    description: I
+    price: $10.00
+  - id: Product4
+    name: 2500 Gold
+    description: Wanna
+    price: $20.00
+  - id: Product5
+    name: 5000 Gold
+    description: Put
+    price: $35.00
