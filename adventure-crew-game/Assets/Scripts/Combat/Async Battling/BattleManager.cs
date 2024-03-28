@@ -54,4 +54,12 @@ public class BattleManager : MonoBehaviour
         return activeBattles[index];
     }
 
+    public int AddBattle(Battle b)
+    {
+        int indexToAdd = activeBattles.Count;
+        activeBattles.Add(b);
+        return indexToAdd;
+    }
+
+
 }

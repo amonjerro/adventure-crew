@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class QuestManager : MonoBehaviour
@@ -40,6 +41,7 @@ public class QuestManager : MonoBehaviour
         // Do some Battle shit
         BattleManager bm = GetComponent<BattleManager>();
         Battle b = new Battle();
+        int deployment = bm.AddBattle(b);
 
     }
 }
