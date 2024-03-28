@@ -9,6 +9,7 @@ public struct Stats
     public int Damage;
     public int Agility;
     public float Range;
+    public Vector3 Position;
 
     // General Constructor
     public Stats(int hp, int maxHP, int damage, int agility)
@@ -18,6 +19,7 @@ public struct Stats
         Damage = damage;
         Agility = agility;
         Range = 1.0f;
+        Position = Vector3.zero;
     }
 
     // Constructor for ranged units
@@ -28,5 +30,6 @@ public struct Stats
         Damage = damage;
         Agility = agility;
         Range = rng;
+        Position = Vector3.zero;
     }
 }

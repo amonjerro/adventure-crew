@@ -24,7 +24,10 @@ public class Battle
         {
             foreach (ICharacter participant in participants)
             {
-                participant.GetNextAction();
+                if (participant.isAlive())
+                {
+                    participant.GetNextAction();
+                }
             }
         }
 
@@ -32,14 +35,20 @@ public class Battle
         remainingEnemyHP = UpdateEnemyHp();
     }
 
-    public void Setup(List<ICharacter> adventurers, List<ICharacter> enemies)
+
+    public void Setup(List<ICharacter> formationAdventurers, List<ICharacter> formationEnemies)
     {
-        int totalCount = adventurers.Count >= enemies.Count ? adventurers.Count : enemies.Count;
+        // Clear internal lists
+        participants.Clear();
+        adventurers.Clear();
+        enemies.Clear();
+
+        int totalCount = formationAdventurers.Count >= formationEnemies.Count ? formationAdventurers.Count : formationEnemies.Count;
         for (int i = 0; i < totalCount; i++)
         {
             if (i < adventurers.Count)
             {
-                adventurers.Add((Adventurer)adventurers[i]);
+                adventurers.Add((Adventurer)formationAdventurers[i]);
                 participants.Add(adventurers[i]);
                 remainingPlayerHP += adventurers[i].GetStats().MaxHP;
                 adventurers[i].Initiative = UnityEngine.Random.Range(1, 20);
@@ -47,7 +56,7 @@ public class Battle
 
             if (i < enemies.Count)
             {
-                enemies.Add((Enemy)enemies[i]);
+                enemies.Add((Enemy)formationEnemies[i]);
                 participants.Add(enemies[i]);
                 remainingPlayerHP += enemies[i].GetStats().MaxHP;
                 enemies[i].Initiative = UnityEngine.Random.Range(1, 20);
@@ -55,6 +64,21 @@ public class Battle
         }
         // Sort by initiative
         participants.Sort();
+    }
+
+    public List<Adventurer> GetAdventurers()
+    {
+        return adventurers;
+    }
+
+    public List<Enemy> GetEnemies()
+    {
+        return enemies;
+    }
+
+    public List<ICharacter> GetParticipants()
+    {
+        return participants;
     }
 
     public int GetSquadHP()

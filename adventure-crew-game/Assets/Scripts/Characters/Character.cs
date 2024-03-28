@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public interface ICharacter : IComparable
@@ -7,13 +6,17 @@ public interface ICharacter : IComparable
 
     public int Initiative { get; set; }
     public Stats GetStats();
+    public bool isAlive()
+    {
+        Stats stats = GetStats();
+        return stats.HP >= 0;
+    }
+
     public void Die();
 
     public void SetStrategy(ICombatStrategy strategy);
 
     public void GetNextAction();
-
-    public void SetPosition(Vector3 pos);
 
     int IComparable.CompareTo(object b)
     {

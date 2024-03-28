@@ -11,7 +11,6 @@ public class Enemy : ICharacter
         set => _initiative = value - combatStats.Agility;
     }
     ICombatStrategy aiStrategy;
-    Vector3 position;
 
     public Stats GetStats()
     {
@@ -33,8 +32,4 @@ public class Enemy : ICharacter
         aiStrategy.DecideNextAction(combatStats);
     }
 
-    public void SetPosition(Vector3 pos)
-    {
-        position = pos;
-    }
 }

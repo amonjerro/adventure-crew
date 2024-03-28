@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +11,11 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private BattleUI screen;
 
+    private void Start()
+    {
+        activeBattles = new List<Battle>();   
+    }
+
     private void Update()
     {
         foreach(Battle b in activeBattles)
@@ -21,20 +25,16 @@ public class BattleManager : MonoBehaviour
 
         if (_isRendering)
         {
-            screen.RenderBattleStatus(_renderedBattle);
+            screen.RenderBattleStatus();
         }
     }
 
     public void InspectBattle(int i)
     {
         _renderedBattle = activeBattles[i];
+        screen.b = _renderedBattle;
+        screen.gameObject.SetActive(true);
         _isRendering = true;
-    }
-
-    public void CloseRenderScreen()
-    {
-        _renderedBattle = null;
-        _isRendering = false;
     }
 
 }

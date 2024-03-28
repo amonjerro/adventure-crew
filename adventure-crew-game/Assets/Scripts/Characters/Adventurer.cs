@@ -5,7 +5,7 @@ public class Adventurer : ICharacter
     private int _initiative = 0;
     Stats combatStats;
     ICombatStrategy aiStrategy;
-    Vector3 position;
+
     public int Exhaustion { get; set; }
     public int XP { get; set; }
     public int Level { get; private set; }
@@ -51,11 +51,6 @@ public class Adventurer : ICharacter
 
             // Other bells and whistles, increase stats, etc.
         }
-    }
-
-    public void SetPosition(Vector3 pos)
-    {
-        position = pos;
     }
 
 }

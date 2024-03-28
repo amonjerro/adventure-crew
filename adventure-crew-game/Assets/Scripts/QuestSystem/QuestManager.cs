@@ -33,6 +33,9 @@ public class QuestManager : MonoBehaviour
 
     public void LoadNextEncounter()
     {
-        SceneManager.LoadScene(2);
+        // Do some Battle shit
+        BattleManager bm = GetComponent<BattleManager>();
+        Battle b = new Battle();
+
     }
 }
