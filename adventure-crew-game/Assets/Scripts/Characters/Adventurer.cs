@@ -1,34 +1,49 @@
-public class Adventurer : ICharacter
+
+public class Adventurer : Character
 {
+    private int _initiative = 0;
+    private int _currentDeployment = 0;
     Stats combatStats;
     ICombatStrategy aiStrategy;
+
     public int Exhaustion { get; set; }
     public int XP { get; set; }
     public int Level { get; private set; }
+    public override int Initiative
+    {
+        get => _initiative;
+        set => _initiative = value - combatStats.Agility;
+    }
+
+    public override int CurrentDeployment
+    {
+        get => _currentDeployment;
+        set => _currentDeployment = value;
+    }
 
     public Adventurer(Stats stats)
     {
         combatStats = stats;
     }
 
-    public Stats GetStats()
+    public override Stats GetStats()
     {
         return combatStats;
     }
 
-    public void Die()
+    public override void Die()
     {
 
     }
 
-    public void SetStrategy(ICombatStrategy strat)
+    public override void SetStrategy(ICombatStrategy strat)
     {
         aiStrategy = strat;
     }
 
-    public void GetNextAction()
+    public override void GetNextAction()
     {
-        aiStrategy.DecideNextAction(combatStats);
+        aiStrategy.DecideNextAction(this, combatStats);
     }
 
     public void AddXP(int value)
@@ -43,4 +58,5 @@ public class Adventurer : ICharacter
             // Other bells and whistles, increase stats, etc.
         }
     }
+
 }

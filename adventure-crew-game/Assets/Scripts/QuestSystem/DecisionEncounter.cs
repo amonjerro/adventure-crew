@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SOs/DecisionEncounter")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Quests/DecisionEncounter")]
 public class DecisionEncounter : Encounter
 {
     [TextArea]
