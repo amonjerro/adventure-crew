@@ -1,35 +1,49 @@
 using UnityEngine;
 
-public class Enemy : ICharacter
+public class Enemy : Character
 {
     Stats combatStats;
     int xpReward;
     int _initiative = 0;
-    public int Initiative
+    int _currentDeployment = 0;
+    public override int Initiative
     {
         get => _initiative;
         set => _initiative = value - combatStats.Agility;
     }
+
+    public override int CurrentDeployment
+    {
+        get => _currentDeployment;
+        set => _currentDeployment = value;
+    }
+
     ICombatStrategy aiStrategy;
 
-    public Stats GetStats()
+    public override Stats GetStats()
     {
         return combatStats;
     }
 
-    public void Die()
+    public override void Die()
     {
         // Find some way of sending the XP Reward to a collector object
     }
 
-    public void SetStrategy(ICombatStrategy strat)
+    public override void SetStrategy(ICombatStrategy strat)
     {
         aiStrategy = strat;
     }
 
-    public void GetNextAction()
+    public override void GetNextAction()
     {
-        aiStrategy.DecideNextAction(combatStats);
+        aiStrategy.DecideNextAction(this, combatStats);
+    }
+
+    public Enemy(Stats stats, StrategyTypes behaviorType)
+    {
+        combatStats = stats;
+        aiStrategy = CombatStrategyFactory.MakeStrategy(behaviorType);
     }
 
 }

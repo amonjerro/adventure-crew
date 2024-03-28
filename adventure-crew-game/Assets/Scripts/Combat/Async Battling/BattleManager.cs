@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
+    public static BattleManager Instance { get; private set; }
+
+
 
     List<Battle> activeBattles;
     private bool _isRendering;
@@ -11,9 +14,18 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private BattleUI screen;
 
-    private void Start()
+    private void Awake()
     {
-        activeBattles = new List<Battle>();   
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        } else
+        {
+            Instance = this;
+        }
+
+        activeBattles = new List<Battle>();
     }
 
     private void Update()
@@ -35,6 +47,11 @@ public class BattleManager : MonoBehaviour
         screen.b = _renderedBattle;
         screen.gameObject.SetActive(true);
         _isRendering = true;
+    }
+
+    public Battle GetBattleByIndex(int index)
+    {
+        return activeBattles[index];
     }
 
 }

@@ -17,5 +17,6 @@ public struct FormationStruct
 
     public CombatStatsSO enemy;
     public Vector3 position;
+    public StrategyTypes aiType;
 
 }

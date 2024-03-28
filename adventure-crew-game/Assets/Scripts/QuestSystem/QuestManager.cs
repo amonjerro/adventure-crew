@@ -36,7 +36,7 @@ public class QuestManager : MonoBehaviour
     public void LoadNextEncounter()
     {
         activeQuest.SetActiveEncounter(encounterIndex);
-        activeQuest.StartEncounter();
+
         // Do some Battle shit
         BattleManager bm = GetComponent<BattleManager>();
         Battle b = new Battle();
