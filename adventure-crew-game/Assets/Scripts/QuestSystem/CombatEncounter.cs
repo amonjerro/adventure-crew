@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(menuName = "SOs/CombatEncounter")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Quests/CombatEncounter")]
 public class CombatEncounter : Encounter
 {
     //To do: Add enemy entities for combat
-
+    public EnemyFormation enemyFormation;
     public override void OnEnd()
     {
 
@@ -13,6 +15,7 @@ public class CombatEncounter : Encounter
 
     public override void OnStart()
     {
-
+        SceneManager.LoadScene(2);
     }
+
 }
