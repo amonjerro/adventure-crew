@@ -7,6 +7,12 @@ public enum ActionTypes
     NextEncounter
 }
 
+public enum SelectionActions
+{
+    MovePlayer,
+    RenderBattle
+}
+
 public static class ActionFactory
 {
     public static IQuestUIAction MakeUIAction(ActionTypes type)
@@ -24,7 +30,39 @@ public static class ActionFactory
                 return new Reject();
         }
     }
+
+    public static ILocationSelectAction MakeLocationAction(SelectionActions type)
+    {
+        switch (type)
+        {
+            case SelectionActions.RenderBattle:
+                return new RenderLocation();
+            default:
+                return new MovePlayer();
+        }
+    }
 } 
+
+public interface ILocationSelectAction
+{
+    public void Perform(QuestSelection qs);
+}
+
+public class RenderLocation : ILocationSelectAction
+{
+    public void Perform(QuestSelection qs)
+    {
+        // do eet
+    }
+}
+
+public class MovePlayer : ILocationSelectAction
+{
+    public void Perform(QuestSelection qs)
+    {
+        qs.MovePlayer();
+    }
+}
 
 public interface IQuestUIAction
 {

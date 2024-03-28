@@ -1,8 +1,17 @@
+using UnityEngine;
+
 public class Enemy : ICharacter
 {
     Stats combatStats;
     int xpReward;
+    int _initiative = 0;
+    public int Initiative
+    {
+        get => _initiative;
+        set => _initiative = value - combatStats.Agility;
+    }
     ICombatStrategy aiStrategy;
+    Vector3 position;
 
     public Stats GetStats()
     {
@@ -22,5 +31,10 @@ public class Enemy : ICharacter
     public void GetNextAction()
     {
         aiStrategy.DecideNextAction(combatStats);
+    }
+
+    public void SetPosition(Vector3 pos)
+    {
+        position = pos;
     }
 }
