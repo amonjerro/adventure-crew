@@ -4,24 +4,27 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class FormationController : MonoBehaviour, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class FormationController : MonoBehaviour
 {
     public int ID;
-    private bool dragging;
     public GameObject adventurer;
     private Button selfButton;
 
     private void Start()
     {
         selfButton = GetComponent<Button>();
+        selfButton.onClick.AddListener(GetButtonClicked);
+    }
+    private void OnDisable()
+    {
+        selfButton.onClick.RemoveAllListeners();
     }
     public void SetID(int id)
     {
         ID = id;
     }
-    public void OnPointerUp(PointerEventData eventData)
+    private void GetButtonClicked()
     {
-        if (dragging) return;
         SpawnAdventurer(ID);
         selfButton.interactable = false;
     }
@@ -29,23 +32,10 @@ public class FormationController : MonoBehaviour, IPointerUpHandler, IBeginDragH
     {
         GameObject go = Instantiate(adventurer);
         go.GetComponent<CombatEntityAdventurer>().InititCombatAdventurer(AdventurerList.Adventurers[id].GetStats());
-        go.AddComponent<FollowMouse>().SetID(id);
+        go.AddComponent<FollowMouse>().FollowMouseInit(this);
     }
-    public void OnBeginDrag(PointerEventData eventData)
+    public void ResetButton()
     {
-        dragging = true;
+        selfButton.interactable = true;
     }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        dragging = true;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        dragging = false;
-    }
-
-
-
 }

@@ -5,10 +5,10 @@ using UnityEngine.EventSystems;
 
 public class FollowMouse : MonoBehaviour
 {
-    public int ID;
-    public void SetID(int id)
+    private FormationController controller;
+    public void FollowMouseInit(FormationController controller)
     {
-        ID = id;
+        this.controller = controller;
     }
     private void FixedUpdate()
     {
@@ -27,6 +27,7 @@ public class FollowMouse : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(1))
         {
+            controller.ResetButton();
             Destroy(gameObject);
         }
     }
