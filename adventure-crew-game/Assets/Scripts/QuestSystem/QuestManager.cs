@@ -5,6 +5,7 @@ public class QuestManager : MonoBehaviour
 {
     private bool _isEngaged = false;
     private Quest activeQuest;
+    private int encounterIndex;
     [SerializeField]
     QuestUIManager uiManager;
 
@@ -16,6 +17,7 @@ public class QuestManager : MonoBehaviour
     public void EngageQuest(Quest q)
     {
         _isEngaged = true;
+        encounterIndex = 0;
         activeQuest = q;
     }
     
@@ -33,6 +35,7 @@ public class QuestManager : MonoBehaviour
 
     public void LoadNextEncounter()
     {
-        SceneManager.LoadScene(2);
+        activeQuest.SetActiveEncounter(encounterIndex);
+        activeQuest.StartEncounter();
     }
 }
