@@ -356,10 +356,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7989086511345148155}
   - component: {fileID: 4049922334126814601}
+  - component: {fileID: 8261291426328708065}
   - component: {fileID: -2968824995431284982}
   - component: {fileID: 4014508589317587339}
   m_Layer: 5
-  m_Name: AdventurerInfo
+  m_Name: AdventurerInfoFormation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -402,6 +403,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   XP: {fileID: 287113020306052180}
   exhaustionText: {fileID: 6880069425318117181}
+--- !u!114 &8261291426328708065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6994618697353618926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1df326af1e67b04a80cd7e558e0457a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-2968824995431284982
 MonoBehaviour:
   m_ObjectHideFlags: 0
