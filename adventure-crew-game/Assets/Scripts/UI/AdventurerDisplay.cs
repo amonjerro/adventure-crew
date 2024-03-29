@@ -8,14 +8,22 @@ public class AdventurerDisplay : MonoBehaviour
 {
     public Button generateButton;
     public Button deleteButton;
+    [Header("Assets/Prefabs/UI/AdventurerInfo")]
     public GameObject UIPrefab;
 
     [Header("UI element's parent")]
     public GameObject content;
+
+    //Don't show it, otherwise it causes a unity buf with inspector
     private void Start()
     {
         //generateButton.onClick.AddListener(Generate);
         //deleteButton.onClick.AddListener(Remove);
+    }
+    private void OnDisable()
+    {
+        generateButton.onClick.RemoveAllListeners();
+        deleteButton.onClick.RemoveAllListeners();
     }
 
     public void Generate()
@@ -39,14 +47,11 @@ public class AdventurerDisplay : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        string log = "";
         for (int i = 0; i < AdventurerList.Adventurers.Count; i++)
         {
-            log += AdventurerList.Adventurers[i].XP.ToString() + " ";
             AdventurerUIElement element = Instantiate(UIPrefab, content.transform).GetComponent<AdventurerUIElement>();
             element.UpdateInfo(AdventurerList.Adventurers[i].XP, AdventurerList.Adventurers[i].Exhaustion);
         }
-        //print(log);
     }
     
 }

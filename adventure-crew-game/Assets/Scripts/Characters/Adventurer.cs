@@ -6,6 +6,14 @@ public class Adventurer : ICharacter
     public int XP { get; set; }
     public int Level { get; private set; }
 
+    enum Rank
+    {
+        A = 0,
+        B = 1,
+        C = 2,
+        D = 3
+    }
+
     public Adventurer(Stats stats)
     {
         combatStats = stats;
