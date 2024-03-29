@@ -14,11 +14,11 @@ public class AdventurerDisplay : MonoBehaviour
     public GameObject content;
     private void Start()
     {
-        generateButton.onClick.AddListener(Generate);
-        deleteButton.onClick.AddListener(Remove);
+        //generateButton.onClick.AddListener(Generate);
+        //deleteButton.onClick.AddListener(Remove);
     }
 
-    private void Generate()
+    public void Generate()
     {
         AdventurerList.AddAnAdventurer();
 

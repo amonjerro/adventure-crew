@@ -4,12 +4,13 @@ using UnityEngine;
 namespace Backend.IAP
 {
     [Serializable]
-    public class IAPProduct
+    public class ShopProduct
     {
         [SerializeField] private string id;
         [Space, SerializeField] private string name;
         [SerializeField, Multiline] private string description;
         [Space, SerializeField] private string price;
+
 
         public string Id => id;
         public string Name => name;
@@ -22,11 +23,13 @@ namespace Backend.IAP
             Purchased = PlayerPrefs.GetInt(id, 0) == 1;
         }
 
-        internal void OnPurchaseSuccessful()
+        internal void OnPurchaseSuccessful(AdventurerDisplay adventurers)
         {
+            if(id.Remove(id.Length - 1, 1) == "Contract") { adventurers.Generate(); }
+            else if (id.Remove(id.Length - 1, 1) == "Product") { }
             // Purchase logic
             Purchased = true;
-            PlayerPrefs.SetInt(id, 1);
+            //PlayerPrefs.SetInt(id, 1);
         }
         
         internal void ResetPurchase()
