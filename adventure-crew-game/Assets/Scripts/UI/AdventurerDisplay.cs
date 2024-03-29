@@ -17,8 +17,8 @@ public class AdventurerDisplay : MonoBehaviour
     //Don't show it, otherwise it causes a unity buf with inspector
     private void Start()
     {
-        //generateButton.onClick.AddListener(Generate);
-        //deleteButton.onClick.AddListener(Remove);
+        generateButton.onClick.AddListener(Generate);
+        deleteButton.onClick.AddListener(Remove);
     }
     private void OnDisable()
     {
