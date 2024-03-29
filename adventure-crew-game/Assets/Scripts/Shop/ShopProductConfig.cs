@@ -4,13 +4,13 @@ using UnityEngine;
 namespace Backend.IAP
 {
     [CreateAssetMenu(fileName = "IAP Product Config", menuName = "IAP/Product Config", order = 0)]
-    public class IAPProductConfig : ScriptableObject
+    public class ShopProductConfig : ScriptableObject
     {
-        [SerializeField] private IAPProduct[] products;
+        [SerializeField] private ShopProduct[] products;
 
-        public IAPProduct[] Products => products;
+        public ShopProduct[] Products => products;
 
-        internal IAPProduct GetProductById(string id)
+        internal ShopProduct GetProductById(string id)
         {
             return products.FirstOrDefault(product => product.Id == id);
         }

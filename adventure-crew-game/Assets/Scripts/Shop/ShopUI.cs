@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Test.IAP
 {
-    public class IAPDummyUI : MonoBehaviour
+    public class ShopUI : MonoBehaviour
     {
         [SerializeField] private GameObject[] productsUI;
 
@@ -14,10 +14,15 @@ namespace Test.IAP
         private void Start()
         {
             var products = ShopManager.Instance.GetProducts();
+            int startIndex = 0;
 
-            for (var i = 0; i < products.Length; i++)
+            if (this.gameObject.name == "Gold Store Holder") { startIndex = 0; }
+            else if (this.gameObject.name == "IAP Holder") { startIndex = 5; }
+
+
+            for (var i = 0; i < productsUI.Length; i++)
             {
-                var product = products[i];
+                var product = products[startIndex];
                 var productUI = productsUI[i];
 
                 if (productUI == null) continue;
@@ -28,11 +33,13 @@ namespace Test.IAP
                 productUI.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = product.Description;
                 productUI.transform.Find("Price").GetComponent<TextMeshProUGUI>().text = product.Price;
                 productUI.GetComponentInChildren<Button>().interactable = !product.Purchased;
+
+                startIndex++;
             }
         }
 
         private void Update()
-        {
+        {/*
             var products = ShopManager.Instance.GetProducts();
 
             for (var i = 0; i < products.Length; i++)
@@ -42,7 +49,7 @@ namespace Test.IAP
 
                 // This is a quick way to do this don't do this in production.
                 productUI.GetComponentInChildren<Button>().interactable = !product.Purchased;
-            }
+            }*/
         }
 
         public void SetCurrentProductID(string id)

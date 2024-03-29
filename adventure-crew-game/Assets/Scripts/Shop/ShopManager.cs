@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace Backend.IAP
 {
-    public class IAPManager : MonoBehaviour
+    public class ShopManager : MonoBehaviour
     {
-        public static IAPManager Instance { get; private set; }
-        [SerializeField] private IAPProductConfig productConfig;
+        public static ShopManager Instance { get; private set; }
+        [SerializeField] private ShopProductConfig productConfig;
+        [SerializeField] private AdventurerDisplay adventurers;
 
         private void Awake()
         {
@@ -30,12 +31,12 @@ namespace Backend.IAP
             }
         }
 
-        public IAPProduct[] GetProducts()
+        public ShopProduct[] GetProducts()
         {
             return productConfig.Products;
         }
 
-        private IAPProduct GetProductById(string id)
+        private ShopProduct GetProductById(string id)
         {
             return productConfig.GetProductById(id);
         }
@@ -48,7 +49,7 @@ namespace Backend.IAP
         public void TryPurchaseProduct(string id, Action<bool> onPurchase = null)
         {
             var product = GetProductById(id);
-            product.OnPurchaseSuccessful();
+            product.OnPurchaseSuccessful(adventurers);
             
             onPurchase?.Invoke(true);
         }

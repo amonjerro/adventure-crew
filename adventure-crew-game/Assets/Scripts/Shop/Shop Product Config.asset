@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4352e4335ae4b3b88c4fc7dd81fad29, type: 3}
-  m_Name: GS Product Config
+  m_Name: Shop Product Config
   m_EditorClassIdentifier: 
   products:
   - id: Contract1
@@ -29,7 +29,27 @@ MonoBehaviour:
     name: Rank A Contract
     description: Contract for mercenaries with A ranking.
     price: 1000 Gold
-  - id: Product5
-    name: Rank A Contract
+  - id: Contract5
+    name: Rank S Contract
     description: Contract for mercenaries with S ranking.
     price: 2500 Gold
+  - id: Product1
+    name: 100 Gold
+    description: Random
+    price: $1.00
+  - id: Product2
+    name: 500 Gold
+    description: S@#t
+    price: $5.00
+  - id: Product3
+    name: 1000 Gold
+    description: I
+    price: $10.00
+  - id: Product4
+    name: 2500 Gold
+    description: Wanna
+    price: $20.00
+  - id: Product5
+    name: 5000 Gold
+    description: Put
+    price: $35.00
