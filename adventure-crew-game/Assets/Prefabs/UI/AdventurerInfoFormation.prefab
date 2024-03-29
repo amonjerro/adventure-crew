@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7353906173347802708}
   - component: {fileID: 287113020306052180}
   m_Layer: 5
-  m_Name: XPText
+  m_Name: RankText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,7 +401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79495769195712c45a55a029869c771f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XP: {fileID: 287113020306052180}
+  ID: 0
+  rankText: {fileID: 287113020306052180}
   exhaustionText: {fileID: 6880069425318117181}
 --- !u!114 &8261291426328708065
 MonoBehaviour:

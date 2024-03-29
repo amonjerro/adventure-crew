@@ -10,14 +10,16 @@ public static class AdventurerList
     private static Adventurer GenerateAnAdventurer()
     {
         System.Random rnd = new System.Random();
-        int hp = rnd.Next(8, 16);
+        int rankInt = rnd.Next(0, 4);
+        int hp = rnd.Next(8, 16) * (rankInt + 1);
         int maxHP = hp;
-        int damage = rnd.Next(1, 4);
-        int agility = rnd.Next(1, 4);
+        int damage = rnd.Next(1, 4) * (rankInt + 1);
+        int agility = rnd.Next(1, 4) * (rankInt + 1);
         float range = UnityEngine.Random.Range(1, 5);
         Stats stats = new Stats(hp, maxHP, damage, agility, range);
         Adventurer adventurer = new Adventurer(stats);
-        adventurer.Exhaustion = rnd.Next(15, 20);
+        adventurer.rank = (Adventurer.Rank)rankInt;
+        adventurer.Exhaustion = 0;
         adventurer.XP = rnd.Next(0, 50);
         return adventurer;
     }
@@ -26,13 +28,17 @@ public static class AdventurerList
         Adventurers.Add(GenerateAnAdventurer());
         QuickSort(ref Adventurers, 0, Adventurers.Count - 1);
     }
+    public static void AddAnAdventurerNoSort()
+    {
+        Adventurers.Add(GenerateAnAdventurer());
+    }
     public static void RemoveAnAdventurer(int index)
     {
         Adventurers.RemoveAt(index);
         QuickSort(ref Adventurers, 0, Adventurers.Count - 1);
     }
 
-    private static void QuickSort(ref List<Adventurer> list, int low, int high)
+    public static void QuickSort(ref List<Adventurer> list, int low, int high)
     {
         if (low >= high) return;
         int i = low - 1;
@@ -40,7 +46,7 @@ public static class AdventurerList
 
         while (j < high)
         {
-            if (list[j].XP > list[high].XP)
+            if (list[j].rank > list[high].rank)
             {
                 i++;
                 Adventurer ad = list[j];

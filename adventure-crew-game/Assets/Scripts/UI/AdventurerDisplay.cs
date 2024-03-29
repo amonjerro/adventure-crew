@@ -17,13 +17,15 @@ public class AdventurerDisplay : MonoBehaviour
     //Don't show it, otherwise it causes a unity buf with inspector
     private void Start()
     {
-        generateButton.onClick.AddListener(Generate);
-        deleteButton.onClick.AddListener(Remove);
+        if(generateButton != null) generateButton.onClick.AddListener(Generate);
+        if(deleteButton != null) deleteButton.onClick.AddListener(Remove);
+
+        UpdateDisplay();
     }
     private void OnDisable()
     {
-        generateButton.onClick.RemoveAllListeners();
-        deleteButton.onClick.RemoveAllListeners();
+        if(generateButton != null) generateButton.onClick.RemoveAllListeners();
+        if (deleteButton != null) deleteButton.onClick.RemoveAllListeners();
     }
 
     public void Generate()
@@ -50,7 +52,7 @@ public class AdventurerDisplay : MonoBehaviour
         for (int i = 0; i < AdventurerList.Adventurers.Count; i++)
         {
             AdventurerUIElement element = Instantiate(UIPrefab, content.transform).GetComponent<AdventurerUIElement>();
-            element.UpdateInfo(AdventurerList.Adventurers[i].XP, AdventurerList.Adventurers[i].Exhaustion);
+            element.Init(i, AdventurerList.Adventurers[i].rank, AdventurerList.Adventurers[i].Exhaustion);
         }
     }
     
