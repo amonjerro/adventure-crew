@@ -4,7 +4,7 @@ using UnityEngine;
 public class CombatEntity : MonoBehaviour
 {
     public CombatEntity target = null;
-    protected Stats stats;
+    [SerializeField] protected Stats stats;
     private float cooldown;
     private float timer = 0.0f;
     public enum CurrentAction

@@ -416,6 +416,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1df326af1e67b04a80cd7e558e0457a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
+  adventurer: {fileID: 2466300133720182740, guid: 2d00be807bcfe0c40ae40ca49a7483ff,
+    type: 3}
 --- !u!114 &-2968824995431284982
 MonoBehaviour:
   m_ObjectHideFlags: 0

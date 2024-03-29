@@ -10,10 +10,10 @@ public class AdventurerUIElement : MonoBehaviour
     public TMP_Text rankText;
     public TMP_Text exhaustionText;
 
-    public void Init(int ID, Adventurer.Rank rank, int exhaustion)
+    public void Init(int ID)
     {
         this.ID = ID;
-        rankText.text = rank.ToString();
-        exhaustionText.text = exhaustion.ToString();
+        rankText.text = AdventurerList.Adventurers[ID].rank.ToString();
+        exhaustionText.text = AdventurerList.Adventurers[ID].Exhaustion.ToString();
     }
 }

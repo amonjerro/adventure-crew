@@ -5,6 +5,11 @@ using UnityEngine.EventSystems;
 
 public class FollowMouse : MonoBehaviour
 {
+    public int ID;
+    public void SetID(int id)
+    {
+        ID = id;
+    }
     private void FixedUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -19,6 +24,10 @@ public class FollowMouse : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             Destroy(this);
+        }
+        if(Input.GetMouseButtonDown(1))
+        {
+            Destroy(gameObject);
         }
     }
 }

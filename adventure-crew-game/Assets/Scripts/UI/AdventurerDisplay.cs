@@ -51,8 +51,16 @@ public class AdventurerDisplay : MonoBehaviour
         }
         for (int i = 0; i < AdventurerList.Adventurers.Count; i++)
         {
+            //There are two prefabs: one for Shop, one for combat
+            //The shop one only have AdventurerUIElement
             AdventurerUIElement element = Instantiate(UIPrefab, content.transform).GetComponent<AdventurerUIElement>();
-            element.Init(i, AdventurerList.Adventurers[i].rank, AdventurerList.Adventurers[i].Exhaustion);
+            element.Init(i);
+
+            //The combat one also have FormationController
+            if(element.transform.TryGetComponent(out FormationController formationController))
+            {
+                formationController.SetID(i);
+            }
         }
     }
     
