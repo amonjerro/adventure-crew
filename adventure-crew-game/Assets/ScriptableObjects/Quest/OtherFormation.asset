@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ec03c0d7a5f7c4ab0c9cd9f79fde00, type: 3}
-  m_Name: AData-Charlie
+  m_Script: {fileID: 11500000, guid: a455633a3d0fa524baae3f0157bd41a5, type: 3}
+  m_Name: OtherFormation
   m_EditorClassIdentifier: 
-  stats:
-    HP: 150
-    MaxHP: 150
-    Damage: 20
-    Agility: 1
-    Range: 1
+  formation: []

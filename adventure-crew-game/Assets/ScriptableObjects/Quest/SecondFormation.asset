@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a455633a3d0fa524baae3f0157bd41a5, type: 3}
-  m_Name: EnemyFormationTest
+  m_Name: SecondFormation
   m_EditorClassIdentifier: 
   formation:
   - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
@@ -19,5 +19,9 @@ MonoBehaviour:
     position: {x: -3.74, y: 0, z: 0}
   - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
     position: {x: 3.74, y: 0, z: 0}
-  - enemy: {fileID: 11400000, guid: 18975ef1aa19f1c49a325bed2dc396e0, type: 2}
+  - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
     position: {x: 0, y: 0, z: 2.03}
+  - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
+    position: {x: -3.74, y: 0, z: 2.03}
+  - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
+    position: {x: 3.74, y: 0, z: 2.03}

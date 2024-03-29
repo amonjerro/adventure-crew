@@ -14,4 +14,9 @@ public class EnemySpawner : MonoBehaviour
             enemyEntity.transform.localPosition = fs.position;
         }
     }
+
+    public void Awake()
+    {
+        SpawnEnemies(CombatData.activeEnemyFormation);
+    }
 }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AData-Alice
   m_EditorClassIdentifier: 
   stats:
-    HP: 0
-    MaxHP: 0
-    Damage: 0
-    Agility: 0
-    Range: 0
+    HP: 50
+    MaxHP: 50
+    Damage: 10
+    Agility: 2
+    Range: 1

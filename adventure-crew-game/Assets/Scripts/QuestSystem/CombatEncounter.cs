@@ -15,6 +15,7 @@ public class CombatEncounter : Encounter
 
     public override void OnStart()
     {
+        CombatData.SetNextFormation(enemyFormation);
         SceneManager.LoadScene(2);
     }
 
