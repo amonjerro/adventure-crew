@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class AdventurerUIElement : MonoBehaviour
 {
-    public TMP_Text XP;
+    public int ID;
+    public TMP_Text rankText;
     public TMP_Text exhaustionText;
 
-    public void UpdateInfo(int level, int exhaustion)
+    public void Init(int ID)
     {
-        XP.text = level.ToString();
-        exhaustionText.text = exhaustion.ToString();
+        this.ID = ID;
+        rankText.text = AdventurerList.Adventurers[ID].rank.ToString();
+        exhaustionText.text = AdventurerList.Adventurers[ID].Exhaustion.ToString();
     }
 }
