@@ -5,8 +5,9 @@ using UnityEngine;
 public class CombatEntity : MonoBehaviour
 {
     public CombatEntity target = null;
-    protected Stats stats;
+
     private float damageMultiplier = 1;
+    [SerializeField] protected Stats stats;
     private float cooldown;
     private float timer = 0.0f;
     private IEnumerator coroutine;

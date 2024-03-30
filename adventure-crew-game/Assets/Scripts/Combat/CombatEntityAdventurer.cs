@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class CombatEntityAdventurer : CombatEntity
 {
-    [Header("Assign a scriptable object")]
-    public CombatStatsSO combatStatsSO;
-
-    [Header("For testing")]
-    public bool Debug = false;
-    private void Awake()
+    public void InititCombatAdventurer(Stats stats)
     {
-        stats = new Stats(combatStatsSO.stats.HP, combatStatsSO.stats.MaxHP, combatStatsSO.stats.Damage, combatStatsSO.stats.Agility, combatStatsSO.stats.Range);
+        this.stats = stats;
     }
     protected override void OnStatsChanged()
     {
         base.OnStatsChanged();
-
-        if (Debug) return;
-        
-        combatStatsSO.SetStats(stats.HP, stats.MaxHP, stats.Damage, stats.Agility, stats.Range);
     }
 }

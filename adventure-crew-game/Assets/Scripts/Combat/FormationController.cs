@@ -4,30 +4,38 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class FormationController : MonoBehaviour, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class FormationController : MonoBehaviour
 {
-    private bool dragging;
+    public int ID;
+    public GameObject adventurer;
+    private Button selfButton;
 
-    public void OnPointerUp(PointerEventData eventData)
+    private void Start()
     {
-        if (dragging) return;
-        FormationManager.Instance.SpawnAdventurer();
+        selfButton = GetComponent<Button>();
+        selfButton.onClick.AddListener(GetButtonClicked);
     }
-    public void OnBeginDrag(PointerEventData eventData)
+    private void OnDisable()
     {
-        dragging = true;
+        selfButton.onClick.RemoveAllListeners();
     }
-
-    public void OnDrag(PointerEventData eventData)
+    public void SetID(int id)
     {
-        dragging = true;
+        ID = id;
     }
-
-    public void OnEndDrag(PointerEventData eventData)
+    private void GetButtonClicked()
     {
-        dragging = false;
+        SpawnAdventurer(ID);
+        selfButton.interactable = false;
     }
-
-
-
+    public void SpawnAdventurer(int id)
+    {
+        GameObject go = Instantiate(adventurer);
+        go.GetComponent<CombatEntityAdventurer>().InititCombatAdventurer(AdventurerList.Adventurers[id].GetStats());
+        go.AddComponent<FollowMouse>().FollowMouseInit(this);
+    }
+    public void ResetButton()
+    {
+        selfButton.interactable = true;
+    }
 }
