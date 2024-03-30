@@ -3273,8 +3273,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1301664614}
-  - component: {fileID: 1301664613}
   - component: {fileID: 1301664615}
+  - component: {fileID: 1301664616}
   m_Layer: 0
   m_Name: PowerCursor
   m_TagString: Untagged
@@ -3282,26 +3282,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1301664613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301664612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ac5658f608c9949ac3b3a8cc6fe1bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: {x: 0.1, y: 0.1}
-  xClamp: 10
-  zClamp: 10
-  friendlyColor: {r: 0.06550375, g: 0.45531043, b: 0.6037736, a: 0}
-  unFriendlyColor: {r: 0.764151, g: 0.61765873, b: 0.16941082, a: 0}
-  powerCylinder: {fileID: 1063962513}
-  powerCylinderMaterial: {fileID: 2100000, guid: 4b4cb804900f2024b9958e9820fee9fc,
-    type: 2}
 --- !u!4 &1301664614
 Transform:
   m_ObjectHideFlags: 0
@@ -3349,6 +3329,26 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerActions
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 775265931}
+--- !u!114 &1301664616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301664612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19d71f049ccd9949bff6bfc5bafd5ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: {x: 0.1, y: 0.1}
+  xClamp: 10
+  zClamp: 10
+  friendlyColor: {r: 0.054734774, g: 0.29343432, b: 0.7735849, a: 0}
+  unFriendlyColor: {r: 0.8207547, g: 0.43205178, b: 0.042586334, a: 0}
+  powerCylinder: {fileID: 1063962513}
+  powerCylinderMaterial: {fileID: 2100000, guid: 4b4cb804900f2024b9958e9820fee9fc,
+    type: 2}
 --- !u!1 &1321689356
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,7 +3403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d48e710b6b09ff4388262041775a4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 1301664613}
+  cursor: {fileID: 1301664616}
   powerRadius: 5
   powerEffectValue: 3
   tooltip: {fileID: 917096244}
@@ -3880,7 +3880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d48e710b6b09ff4388262041775a4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 1301664613}
+  cursor: {fileID: 1301664616}
   powerRadius: 7
   powerEffectValue: 25
   tooltip: {fileID: 917096244}
@@ -4567,7 +4567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d48e710b6b09ff4388262041775a4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 1301664613}
+  cursor: {fileID: 1301664616}
   powerRadius: 7
   powerEffectValue: 3
   tooltip: {fileID: 917096244}
