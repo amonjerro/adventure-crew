@@ -17,12 +17,17 @@ public class CombatStageController : MonoBehaviour
         startCombatButton.onClick.AddListener(StartCombat);
         backToMapButton.onClick.AddListener(GoBackToMap);
         CombatManager.Instance.combatEnded += EndCombat;
+
+        startCombatButton.interactable = false;
+        FollowMouse.ReadyToFight += () => startCombatButton.interactable = true;
     }
     private void OnDisable()
     {
         startCombatButton.onClick.RemoveAllListeners();
         backToMapButton.onClick.RemoveAllListeners();
         CombatManager.Instance.combatEnded -= EndCombat;
+
+        FollowMouse.ReadyToFight -= () => startCombatButton.interactable = true;
     }
     private void Start()
     {
