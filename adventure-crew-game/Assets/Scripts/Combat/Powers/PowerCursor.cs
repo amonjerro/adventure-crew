@@ -4,19 +4,28 @@ using UnityEngine.InputSystem;
 
 public class PowerCursor : MonoBehaviour
 {
+    [Tooltip("How much to scale the mouse sensitivity by. Good values are between 0.01 and 0.2")]
     public Vector2 mouseSensitivity;
+
+    [Tooltip("The limits of the field. Should match the combat plane size")]
     public float xClamp, zClamp;
     IPowerAction activeAction;
     private bool _isActionSet = false;
     private Vector3 center = Vector3.zero;
 
+    [Tooltip("What color is the cylinder going to be for allied-oriented powers")]
     [SerializeField]
     Color friendlyColor;
+
+    [Tooltip("What color is the cylinder going to be for enemy-oriented powers")]
     [SerializeField]
     Color unFriendlyColor;
 
+    [Tooltip("The Power Cylinder prefab")]
     [SerializeField]
     private GameObject powerCylinder;
+
+    [Tooltip("The Power Cylinder material. Has its own shader")]
     [SerializeField]
     private Material powerCylinderMaterial;
 

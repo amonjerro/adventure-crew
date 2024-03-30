@@ -168,7 +168,10 @@ public class CombatEntity : MonoBehaviour
     private void Die()
     {
         CombatManager.Instance.DestroyAnEntity(this, tag);
-        StopCoroutine(coroutine);
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
 
         if (transform.GetComponentInChildren<HealthBarController>() != null)
         {

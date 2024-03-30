@@ -53,7 +53,7 @@ Shader "Unlit/PowerEffect"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                float mask = sin(i.uv.y * _Frequency - _Time.y) * 0.5 + 0.5;
+                float mask = sin(i.uv.y * _Frequency - _Time.y * 1.5) * 0.5 + 0.5;
                 mask *= 1-(abs(i.normal.y) > 0.999);
                 mask *= 1-i.uv.y;
                 return _PowerColor * mask;
