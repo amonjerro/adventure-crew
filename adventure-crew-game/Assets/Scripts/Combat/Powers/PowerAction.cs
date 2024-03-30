@@ -78,7 +78,7 @@ public class BuffPower : PowerAction
     {
         foreach (CombatEntity target in targets)
         {
-            target.BuffDamage();
+            target.BuffDamage(Effect);
         }
     }
 
@@ -94,7 +94,7 @@ public class DebuffPower : PowerAction
     {
         foreach (CombatEntity target in targets)
         {
-            target.DebuffDamage();
+            target.DebuffDamage(Effect);
         }
     }
 }

@@ -57,7 +57,6 @@ public class PowerCursor : MonoBehaviour
                 return Vector3.Distance(ce.transform.position, center) * 2f < activeAction.Radius;
             });
         }
-        Debug.Log(targets.Count);
         // Do eet
         activeAction.DoPower(targets);
         powerCylinder.SetActive(false);

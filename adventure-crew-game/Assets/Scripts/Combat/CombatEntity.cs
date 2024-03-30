@@ -9,6 +9,7 @@ public class CombatEntity : MonoBehaviour
     private float damageMultiplier = 1;
     private float cooldown;
     private float timer = 0.0f;
+    private IEnumerator coroutine;
     public enum CurrentAction
     {
         idle,
@@ -118,22 +119,21 @@ public class CombatEntity : MonoBehaviour
 
     public void ResetDamage()
     {
-        Debug.Log("Fighting spirit normalized");
         damageMultiplier = 1.0f;
     }
 
-    public void BuffDamage()
+    public void BuffDamage(int duration)
     {
-        Debug.Log("Fighting like demons");
         damageMultiplier = 1.5f;
-        StartCoroutine(RunBuffTimer());
+        coroutine = RunBuffTimer(duration);
+        StartCoroutine(coroutine);
     }
 
-    public void DebuffDamage()
+    public void DebuffDamage(int duration)
     {
-        Debug.Log("Getting Debuffed");
         damageMultiplier = 0.5f;
-        StartCoroutine(RunBuffTimer());
+        coroutine = RunBuffTimer(duration);
+        StartCoroutine(coroutine);
     }
 
     public void TakeDamage(int damage)
@@ -168,6 +168,7 @@ public class CombatEntity : MonoBehaviour
     private void Die()
     {
         CombatManager.Instance.DestroyAnEntity(this, tag);
+        StopCoroutine(coroutine);
 
         if (transform.GetComponentInChildren<HealthBarController>() != null)
         {
@@ -192,9 +193,9 @@ public class CombatEntity : MonoBehaviour
         }
     }
 
-    IEnumerator RunBuffTimer()
+    IEnumerator RunBuffTimer(int effect)
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(effect);
         ResetDamage();
     }
 }
