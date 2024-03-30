@@ -23,6 +23,7 @@ public class FollowMouse : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            AdventurerList.Adventurers[controller.ID].OnQuest = true;
             Destroy(this);
         }
         if(Input.GetMouseButtonDown(1))
