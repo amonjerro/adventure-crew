@@ -1,12 +1,16 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class CombatEntity : MonoBehaviour
 {
     public CombatEntity target = null;
+
+    private float damageMultiplier = 1;
     [SerializeField] protected Stats stats;
     private float cooldown;
     private float timer = 0.0f;
+    private IEnumerator coroutine;
     public enum CurrentAction
     {
         idle,
@@ -97,7 +101,7 @@ public class CombatEntity : MonoBehaviour
         if (timer <= 0.0) 
         {
             timer = cooldown;
-            target.TakeDamage(damage);
+            target.TakeDamage((int) (damage * damageMultiplier));
 
             //visual
             TurnToTarget(target.transform.position);
@@ -106,6 +110,31 @@ public class CombatEntity : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+    }
+
+    public void HealDamage(int value)
+    {
+        stats.HP = Mathf.Clamp(stats.HP + value, 0, stats.MaxHP);
+        OnStatsChanged();
+    }
+
+    public void ResetDamage()
+    {
+        damageMultiplier = 1.0f;
+    }
+
+    public void BuffDamage(int duration)
+    {
+        damageMultiplier = 1.5f;
+        coroutine = RunBuffTimer(duration);
+        StartCoroutine(coroutine);
+    }
+
+    public void DebuffDamage(int duration)
+    {
+        damageMultiplier = 0.5f;
+        coroutine = RunBuffTimer(duration);
+        StartCoroutine(coroutine);
     }
 
     public void TakeDamage(int damage)
@@ -121,6 +150,7 @@ public class CombatEntity : MonoBehaviour
 
         OnStatsChanged();
     }
+
     virtual protected void OnStatsChanged()
     {
         //This function is for modifying adventurer's stats in scriptable object
@@ -139,6 +169,10 @@ public class CombatEntity : MonoBehaviour
     private void Die()
     {
         CombatManager.Instance.DestroyAnEntity(this, tag);
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
 
         if (transform.GetComponentInChildren<HealthBarController>() != null)
         {
@@ -161,5 +195,11 @@ public class CombatEntity : MonoBehaviour
                 break;
             default: break;
         }
+    }
+
+    IEnumerator RunBuffTimer(int effect)
+    {
+        yield return new WaitForSeconds(effect);
+        ResetDamage();
     }
 }

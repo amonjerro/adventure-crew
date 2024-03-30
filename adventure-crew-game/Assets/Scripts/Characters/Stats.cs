@@ -4,6 +4,7 @@ using UnityEngine;
 [Serializable]
 public struct Stats
 {
+
     public int HP;
     public int MaxHP;
     public int Damage;
