@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class CombatEntity : MonoBehaviour
 {
     public CombatEntity target = null;
     protected Stats stats;
+    private float damageMultiplier = 1;
     private float cooldown;
     private float timer = 0.0f;
     public enum CurrentAction
@@ -97,7 +99,7 @@ public class CombatEntity : MonoBehaviour
         if (timer <= 0.0) 
         {
             timer = cooldown;
-            target.TakeDamage(damage);
+            target.TakeDamage((int) (damage * damageMultiplier));
 
             //visual
             TurnToTarget(target.transform.position);
@@ -106,6 +108,32 @@ public class CombatEntity : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+    }
+
+    public void HealDamage(int value)
+    {
+        stats.HP = Mathf.Clamp(stats.HP + value, 0, stats.MaxHP);
+        OnStatsChanged();
+    }
+
+    public void ResetDamage()
+    {
+        Debug.Log("Fighting spirit normalized");
+        damageMultiplier = 1.0f;
+    }
+
+    public void BuffDamage()
+    {
+        Debug.Log("Fighting like demons");
+        damageMultiplier = 1.5f;
+        StartCoroutine(RunBuffTimer());
+    }
+
+    public void DebuffDamage()
+    {
+        Debug.Log("Getting Debuffed");
+        damageMultiplier = 0.5f;
+        StartCoroutine(RunBuffTimer());
     }
 
     public void TakeDamage(int damage)
@@ -121,6 +149,7 @@ public class CombatEntity : MonoBehaviour
 
         OnStatsChanged();
     }
+
     virtual protected void OnStatsChanged()
     {
         //This function is for modifying adventurer's stats in scriptable object
@@ -161,5 +190,11 @@ public class CombatEntity : MonoBehaviour
                 break;
             default: break;
         }
+    }
+
+    IEnumerator RunBuffTimer()
+    {
+        yield return new WaitForSeconds(3.0f);
+        ResetDamage();
     }
 }
