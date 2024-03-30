@@ -42,6 +42,7 @@ public class CombatStageController : MonoBehaviour
     }
     private void GoBackToMap()
     {
+        AdventurerList.ExhaustAdventurers();
         SceneManager.LoadScene(1);
     }
 }

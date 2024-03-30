@@ -63,4 +63,13 @@ public static class AdventurerList
         QuickSort(ref list, low, i - 1);
         QuickSort(ref list, i + 1, high);
     }
+
+    public static void ExhaustAdventurers()
+    {
+        for(int i = 0; i < Adventurers.Count; i++)
+        {
+            Adventurers[i].AdjustExhaustion();
+            Debug.Log("This dudes exhausted " + Adventurers[i].Exhaustion + " much");
+        }
+    }
 }

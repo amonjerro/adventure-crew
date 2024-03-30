@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tsingtao/Battlefield-Non-Test.unity
     guid: 0b68a522b74fa5c4ab7a2774e0e6eed0
+  - enabled: 0
+    path: Assets/Scenes/MapTestScene.unity
+    guid: c3b28d35f5a69c44f91509500a8fde59
+  - enabled: 0
+    path: Assets/Scenes/Tsingtao/BattleField Dynamic Formations.unity
+    guid: 35acf88990cd040499522374ea15769a
   m_configObjects: {}

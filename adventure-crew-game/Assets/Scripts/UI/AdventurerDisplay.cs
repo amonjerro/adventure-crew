@@ -42,7 +42,7 @@ public class AdventurerDisplay : MonoBehaviour
         AdventurerList.RemoveAnAdventurer(index);
         UpdateDisplay();
     }
-    private void UpdateDisplay()
+    public void UpdateDisplay()
     {
         AdventurerUIElement[] allChildren = content.GetComponentsInChildren<AdventurerUIElement>();
         foreach (AdventurerUIElement child in allChildren)

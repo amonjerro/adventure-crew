@@ -16,4 +16,9 @@ public class AdventurerUIElement : MonoBehaviour
         rankText.text = AdventurerList.Adventurers[ID].rank.ToString();
         exhaustionText.text = AdventurerList.Adventurers[ID].Exhaustion.ToString();
     }
+
+    public void UpdateExhaustion()
+    {
+        exhaustionText.text = AdventurerList.Adventurers[ID].Exhaustion.ToString();
+    }
 }
