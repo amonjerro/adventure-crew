@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,10 +20,15 @@ public class FollowMouse : MonoBehaviour
             transform.position = hit.point;
         }
     }
+    public static Action ReadyToFight;
+    //This action is subscribed by: CombatStageController
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
+            AdventurerList.Adventurers[controller.ID].OnQuest = true;
+            if(ReadyToFight != null) ReadyToFight();
             Destroy(this);
         }
         if(Input.GetMouseButtonDown(1))
