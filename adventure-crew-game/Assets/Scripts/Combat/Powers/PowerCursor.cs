@@ -28,8 +28,9 @@ public class PowerCursor : MonoBehaviour
     [Tooltip("The Power Cylinder material. Has its own shader")]
     [SerializeField]
     private Material powerCylinderMaterial;
+    private PowerButton powerButton;
 
-    public void SetAction(IPowerAction action)
+    public void SetAction(IPowerAction action, PowerButton b)
     {
         activeAction = action;
         _isActionSet = true;
@@ -42,6 +43,7 @@ public class PowerCursor : MonoBehaviour
         {
             powerCylinderMaterial.SetColor("_PowerColor", unFriendlyColor);
         }
+        powerButton = b;
     }
 
     public void Execute()
@@ -50,6 +52,10 @@ public class PowerCursor : MonoBehaviour
         if (!_isActionSet)
         {
             return;
+        }
+        if (powerButton != null)
+        {
+            powerButton.ActivateCooldown();
         }
         _isActionSet = false;
         List<CombatEntity> targets;
