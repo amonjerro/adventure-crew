@@ -25,6 +25,10 @@ public class Adventurer : ICharacter
     {
         return combatStats;
     }
+    public void SetStats(Stats stats)
+    {
+        this.combatStats = stats;
+    }
 
     public void Die()
     {
