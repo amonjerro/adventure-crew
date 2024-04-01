@@ -54,7 +54,7 @@ public class AdventurerDisplay : MonoBehaviour
             //There are two prefabs: one for Shop, one for combat
             //The shop one only have AdventurerUIElement
             AdventurerUIElement element = Instantiate(UIPrefab, content.transform).GetComponent<AdventurerUIElement>();
-            element.Init(i);
+            element.Init(i, AdventurerList.Adventurers[i].GetStats());
 
             //The combat one also have FormationController
             if(element.transform.TryGetComponent(out FormationController formationController))

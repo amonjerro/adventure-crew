@@ -30,8 +30,9 @@ public class FormationController : MonoBehaviour
     }
     public void SpawnAdventurer(int id)
     {
+        if (AdventurerList.Adventurers[id].GetStats().HP <= 0) return;
         GameObject go = Instantiate(adventurer);
-        go.GetComponent<CombatEntityAdventurer>().InititCombatAdventurer(AdventurerList.Adventurers[id].GetStats());
+        go.GetComponent<CombatEntityAdventurer>().InititCombatAdventurer(AdventurerList.Adventurers[id].GetStats(), id);
         go.AddComponent<FollowMouse>().FollowMouseInit(this);
     }
     public void ResetButton()
