@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b123414d5cc47745b238388de50d7cb, type: 3}
-  m_Name: ForestEncounter2
+  m_Script: {fileID: 11500000, guid: a455633a3d0fa524baae3f0157bd41a5, type: 3}
+  m_Name: Lk_Frm_5
   m_EditorClassIdentifier: 
-  enemyFormation: {fileID: 11400000, guid: 8e750f9c158c0cd489574d254e21728f, type: 2}
+  formation:
+  - enemy: {fileID: 11400000, guid: dca8b8906aaa4d449bb7257bd3cf7342, type: 2}
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 4, y: 4, z: 4}
