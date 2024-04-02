@@ -50,7 +50,7 @@ public class QuestManager : MonoBehaviour
         if (encounterIndex == activeQuest.encounters.Count)
         {
             // Show this quest has been exhausted
-            uiManager.ShowQuestComplete(activeQuest.completionText);
+            uiManager.ShowQuestComplete(activeQuest.completionText, activeQuest.questTitle);
             activeQuest.CompleteQuest();
             activeQuest = null;
             _isEngaged = false;

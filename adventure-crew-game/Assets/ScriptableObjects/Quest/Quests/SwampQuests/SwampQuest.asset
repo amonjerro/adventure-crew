@@ -12,6 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ad044bf2831fd4eb89bb40d1e7ebd6, type: 3}
   m_Name: SwampQuest
   m_EditorClassIdentifier: 
-  description: 
-  questTitle: The Fortress of Doldrey
-  encounters: []
+  description: 'Word has reached His Majesty that Tudor has been hiring mercenaries
+    from Kushan.
+
+
+    He has dispatched the Band to intercept these merceneraies
+    before they can join the main Tudor force. See to it, take no prisoners.'
+  completionText: Doubtful we have seen the last of these mercenary forces. However,
+    without these skilled reinforcements, Tudor will only have its walls to count
+    on for strength.
+  questTitle: Mercenaries of Kushan
+  _isComplete: 0
+  encounters:
+  - {fileID: 11400000, guid: 96cb4ad81608f4647b718ab79720a405, type: 2}
+  - {fileID: 11400000, guid: 5873b916713fbca4495dd1d876663c9e, type: 2}
+  - {fileID: 11400000, guid: 0037163e14667c84e9597cc6f2d438f9, type: 2}

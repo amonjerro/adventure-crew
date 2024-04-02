@@ -12,6 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ad044bf2831fd4eb89bb40d1e7ebd6, type: 3}
   m_Name: FirelandsQuest
   m_EditorClassIdentifier: 
-  description: 
+  description: 'This land has been ravaged by war; it''s once fertile ground stomped
+    and salted that no man can live off this place again. Such is the price of ambition.
+
+
+    Tudor
+    troops have been seen making their way through a pass that goes through these
+    mountains. If we don''t engage, they''ll surround His Majesty''s forces.'
+  completionText: No units will reach the main army's rear flank, which means we
+    can move forward unimpeded. Let us not dwell on the fate of these lands any longer.
   questTitle: The Barren Front
-  encounters: []
+  _isComplete: 0
+  encounters:
+  - {fileID: 11400000, guid: 9cdb6bb7331326d40bdf6dae4be066e2, type: 2}
+  - {fileID: 11400000, guid: c9e4c4570b5ccc948ba9084975d59356, type: 2}
+  - {fileID: 11400000, guid: 668e047cde0d43846a2a66c81b5b4674, type: 2}
