@@ -2152,9 +2152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startCombatButton: {fileID: 669645246}
+  backToMapButton: {fileID: 2099156931}
+  fleeButton: {fileID: 0}
   formationUI: {fileID: 1822327472}
   postCombatUI: {fileID: 133296578}
-  backToMapButton: {fileID: 2099156931}
+  powerUI: {fileID: 0}
   resultText: {fileID: 449731216}
 --- !u!114 &1235518102
 MonoBehaviour:
