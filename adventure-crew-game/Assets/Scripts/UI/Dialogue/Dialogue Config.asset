@@ -15,7 +15,18 @@ MonoBehaviour:
   characters:
   - charName: Griffith
     dialogue:
-    - Hi there
-    - My name is Griffith Berserk
+    - You fought well, but it is time to accept your defeat. You seem resourceful,
+      if you wish to continue living you'll join us.
+    - I am Griffith, leader of the Band of the Hawk.
+    - Firstly, let me show you around. As mercenaries we are constantly gaining new
+      soldiers. While we have volunteers like you, the majority of our forces are
+      acquired via contracts.
+    - Click on the chest to view contracts
+    - From here you can purchase contracts, those of your chosen rank will join our
+      forces.
+    - Purchase some soldiers and view them in the roster.
+    - Click on the helmet to view the roster
+    - Here you can view the stats of all of your soldiers.
+    - Now then, let's put them to use. Click on Midland and choose a quest.
     charBox: {r: 0.08627451, g: 0.2784314, b: 0.54901963, a: 1}
     charArt: {fileID: 21300000, guid: aec913b28bfc6ab4a86163bcf7861cef, type: 3}
