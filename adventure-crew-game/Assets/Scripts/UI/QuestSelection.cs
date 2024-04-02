@@ -20,19 +20,19 @@ public class QuestSelection : MonoBehaviour
     private MapLocation tentativeMapLocation;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-
-        //Set Location of the CurrentMapLocation
-        currentLocationName = "plains";//Placeholder
-
-        //Set the X for the current location as inactive because the O will be there instead
-        for(int i = 0; i < mapLocations.Count; i++)
+        if (!qmFound)
         {
-            if(mapLocations[i].LocationName == currentLocationName)
-            {
-                mapLocations[i].gameObject.SetActive(false);
-            }
+            qm = GetComponent<QuestManager>();
+            qmFound = true;
+        }
+        if (CombatData.lastCombatWon)
+        {   
+            targetLocation.position = CombatData.lastMapLocation;
+            QuestUIManager uiManager = qm.GetManager();
+            uiManager.gameObject.SetActive(true);
+            uiManager.ShowEncounterButton();
         }
     }
 
@@ -53,10 +53,10 @@ public class QuestSelection : MonoBehaviour
         tentativeMapLocation = selectedObject.GetComponent<MapLocation>();
         if (!qmFound)
         {
-            qm = tentativeMapLocation.GetComponentInParent<QuestManager>();
+            qm = GetComponent<QuestManager>();
             qmFound = true;
         }
-        if (qm.IsEngaged())
+        if (qm.IsEngaged() && tentativeMapLocation.GetNextQuest() != CombatData.activeQuest)
         {
             QuestUIManager uiManager = qm.GetManager();
             uiManager.gameObject.SetActive(true);
@@ -87,5 +87,6 @@ public class QuestSelection : MonoBehaviour
             uiManager.gameObject.SetActive(true);
             uiManager.UpdateUI(q);
         }
+        CombatData.lastMapLocation = targetLocation.position;
     }
 }

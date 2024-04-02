@@ -9,12 +9,13 @@ public class CombatEncounter : Encounter
     public EnemyFormation enemyFormation;
     public override void OnEnd()
     {
-
+        CombatData.activeEnemyFormation = null;
     }
 
 
     public override void OnStart()
     {
+        CombatData.lastCombatWon = false;
         CombatData.SetNextFormation(enemyFormation);
         SceneManager.LoadScene(2);
     }

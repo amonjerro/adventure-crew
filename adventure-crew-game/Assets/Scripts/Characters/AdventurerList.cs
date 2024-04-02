@@ -69,7 +69,6 @@ public static class AdventurerList
         for(int i = 0; i < Adventurers.Count; i++)
         {
             Adventurers[i].AdjustExhaustion();
-            Debug.Log("This dudes exhausted " + Adventurers[i].Exhaustion + " much");
         }
     }
 

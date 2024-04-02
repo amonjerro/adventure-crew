@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b123414d5cc47745b238388de50d7cb, type: 3}
-  m_Name: ForestEncounter2
+  m_Script: {fileID: 11500000, guid: a1ec03c0d7a5f7c4ab0c9cd9f79fde00, type: 3}
+  m_Name: AData-Kushan
   m_EditorClassIdentifier: 
-  enemyFormation: {fileID: 11400000, guid: 8e750f9c158c0cd489574d254e21728f, type: 2}
+  stats:
+    HP: 80
+    MaxHP: 80
+    Damage: 60
+    Agility: 4
+    Range: 1
