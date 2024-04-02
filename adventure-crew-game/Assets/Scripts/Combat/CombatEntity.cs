@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatEntity : MonoBehaviour
@@ -28,6 +29,9 @@ public class CombatEntity : MonoBehaviour
         //tag check
         if (CompareTag("Adventurer") == false && CompareTag("Enemy") == false) Debug.LogWarning("This entity is set to the wrong tag");
         cooldown = 1.0f / stats.Agility;
+
+        //For ranged attack VFX
+        if(stats.Range > 2) transform.AddComponent<RangedVFXController>();
     }
 
     public void DecideCombatAction()
@@ -105,12 +109,15 @@ public class CombatEntity : MonoBehaviour
 
             //visual
             TurnToTarget(target.transform.position);
+            if (OnAttack != null) OnAttack(transform.position + Vector3.up, target.transform.position + Vector3.up);
         }
         else
         {
             timer -= Time.deltaTime;
         }
     }
+    public Action<Vector3, Vector3> OnAttack;
+    //Subscribed by: RangedVFXController
 
     public void HealDamage(int value)
     {
