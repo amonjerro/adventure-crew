@@ -17,6 +17,7 @@ public class QuestUIManager : UIMenu
         panel.SetActive(true);
         title.text = q.questTitle;
         description.text = q.description;
+        firstButton.SetActive(true);
         firstButton.GetComponentInChildren<TextMeshProUGUI>().text = "Accept Quest";
         firstButton.GetComponent<QuestUIAction>().SetAction(ActionTypes.Accept);
         secondButtonText.text = "Reject";
@@ -70,6 +71,7 @@ public class QuestUIManager : UIMenu
         panel.SetActive(true);
         title.text = "";
         description.text = "Are you sure you want to move? You'll leave this quest unfinished and will have to start again.";
+        firstButton.SetActive(true);
         firstButton.GetComponentInChildren<TextMeshProUGUI>().text = "Disengage";
         firstButton.GetComponent<QuestUIAction>().SetAction(ActionTypes.Disengage);
         secondButtonText.text = "Reconsider";
