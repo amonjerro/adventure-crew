@@ -33,6 +33,16 @@ public class QuestUIManager : UIMenu
         secondButtonText.text = "Dismiss";
     }
 
+    public void ShowQuestComplete(string text, string questTitle)
+    {
+        nextEncounterButton.SetActive(false);
+        panel.SetActive(true);
+        firstButton.SetActive(false);
+        title.text = "";
+        description.text = text;
+        secondButtonText.text = "Dismiss";
+    }
+
     public void AcceptQuest()
     {
         QuestManager qm = GetComponentInParent<QuestManager>();

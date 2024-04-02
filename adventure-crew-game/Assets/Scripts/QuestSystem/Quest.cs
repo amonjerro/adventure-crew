@@ -7,7 +7,10 @@ public class Quest : ScriptableObject
 {
     [TextArea]
     public string description;
+    [TextArea]
+    public string completionText;
     public string questTitle;
+    [SerializeField]
     private bool _isComplete = false;
 
     public List<Encounter> encounters;

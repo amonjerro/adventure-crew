@@ -19,6 +19,8 @@ public class QuestManager : MonoBehaviour
         _isEngaged = true;
         encounterIndex = 0;
         activeQuest = q;
+        CombatData.activeQuest = activeQuest;
+        CombatData.isQuestEngaged = true;
     }
     
 
@@ -35,7 +37,39 @@ public class QuestManager : MonoBehaviour
 
     public void LoadNextEncounter()
     {
+        CombatData.questEncounterIndex = encounterIndex;
         activeQuest.SetActiveEncounter(encounterIndex);
         activeQuest.StartEncounter();
+    }
+
+    public void ProgressQuest()
+    {
+        encounterIndex++;
+
+        // Show something in the UI?
+        if (encounterIndex == activeQuest.encounters.Count)
+        {
+            // Show this quest has been exhausted
+            uiManager.ShowQuestComplete(activeQuest.completionText, activeQuest.questTitle);
+            activeQuest.CompleteQuest();
+            activeQuest = null;
+            _isEngaged = false;
+            CombatData.isQuestEngaged = false;
+            CombatData.activeQuest = null;
+            CombatData.questEncounterIndex = 0;
+        }
+    }
+
+    private void Awake()
+    {
+        if (CombatData.isQuestEngaged)
+        {
+            activeQuest = CombatData.activeQuest;
+            _isEngaged = true;
+            encounterIndex = CombatData.questEncounterIndex;
+
+            activeQuest.CompleteEncounter();
+            ProgressQuest();
+        }
     }
 }

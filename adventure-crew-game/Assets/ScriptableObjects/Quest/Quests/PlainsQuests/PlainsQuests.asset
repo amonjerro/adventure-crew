@@ -16,7 +16,10 @@ MonoBehaviour:
     much to prove and to do so, we will prove to the king our military might is unmatched.
     \n\nTudor's troops have been seen pillaging the countryside. We will put a stop
     to it."
+  completionText: Our banners fly high as the Hawk that bears our name. With this,
+    we strive ever closer to our dream!
   questTitle: Humble Beginnings
+  _isComplete: 0
   encounters:
-  - {fileID: 11400000, guid: 7a5f60a6a39222e42ae8378d6489c166, type: 2}
   - {fileID: 11400000, guid: a7a0a40f3619d8c40bcea8045265bb37, type: 2}
+  - {fileID: 11400000, guid: 7a5f60a6a39222e42ae8378d6489c166, type: 2}

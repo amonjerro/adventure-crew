@@ -11,9 +11,9 @@ public static class AdventurerList
     {
         System.Random rnd = new System.Random();
         int rankInt = rnd.Next(0, 4);
-        int hp = rnd.Next(8, 16) * (rankInt + 1);
+        int hp = rnd.Next(75, 100) * (rankInt + 1);
         int maxHP = hp;
-        int damage = rnd.Next(1, 4) * (rankInt + 1);
+        int damage = rnd.Next(8, 15) * (rankInt + 1);
         int agility = rnd.Next(1, 4) * (rankInt + 1);
         float range = UnityEngine.Random.Range(1, 10);
         Stats stats = new Stats(hp, maxHP, damage, agility, range);
@@ -69,7 +69,23 @@ public static class AdventurerList
         for(int i = 0; i < Adventurers.Count; i++)
         {
             Adventurers[i].AdjustExhaustion();
-            Debug.Log("This dudes exhausted " + Adventurers[i].Exhaustion + " much");
+        }
+    }
+
+    public static void ClearDeads()
+    {
+        List<Adventurer> list = new List<Adventurer>();
+        foreach(Adventurer ad in Adventurers)
+        {
+            if(ad.GetStats().HP <= 0 || ad.Exhaustion >= 100)
+            {
+                list.Add(ad);
+            }
+        }
+
+        foreach(Adventurer ad in list)
+        {
+            Adventurers.Remove(ad);
         }
     }
 }

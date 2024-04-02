@@ -112,6 +112,7 @@ public class CombatManager : MonoBehaviour
         {
             if (combatEnded != null) combatEnded(true);
             print("You won!!!");
+            CombatData.lastCombatWon = true;
         }
         else Debug.LogWarning("If you get this message, there is a bug, Tsingtao");
 
