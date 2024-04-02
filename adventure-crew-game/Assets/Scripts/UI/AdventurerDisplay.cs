@@ -44,6 +44,7 @@ public class AdventurerDisplay : MonoBehaviour
     }
     public void UpdateDisplay()
     {
+        AdventurerList.ClearDeads();
         AdventurerUIElement[] allChildren = content.GetComponentsInChildren<AdventurerUIElement>();
         foreach (AdventurerUIElement child in allChildren)
         {

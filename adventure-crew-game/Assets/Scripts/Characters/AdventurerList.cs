@@ -72,4 +72,21 @@ public static class AdventurerList
             Debug.Log("This dudes exhausted " + Adventurers[i].Exhaustion + " much");
         }
     }
+
+    public static void ClearDeads()
+    {
+        List<Adventurer> list = new List<Adventurer>();
+        foreach(Adventurer ad in Adventurers)
+        {
+            if(ad.GetStats().HP <= 0 || ad.Exhaustion >= 50)
+            {
+                list.Add(ad);
+            }
+        }
+
+        foreach(Adventurer ad in list)
+        {
+            Adventurers.Remove(ad);
+        }
+    }
 }
