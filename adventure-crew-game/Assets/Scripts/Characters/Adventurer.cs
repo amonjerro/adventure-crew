@@ -6,6 +6,7 @@ public class Adventurer : ICharacter
     public int XP { get; set; }
     public int Level { get; private set; }
     public bool OnQuest { get; set; }
+    public float HealInterval { get; private set; }
 
     public enum Rank
     {
@@ -32,7 +33,8 @@ public class Adventurer : ICharacter
 
     public void Die()
     {
-
+        AdventurerList.Adventurers.Remove(this);
+        AdventurerList.QuickSort(ref AdventurerList.Adventurers, 0, AdventurerList.Adventurers.Count - 1);
     }
 
     public void SetStrategy(ICombatStrategy strat)
@@ -66,15 +68,20 @@ public class Adventurer : ICharacter
     {
         if (OnQuest)
         {
-            Exhaustion += 50f /** (((float)combatStats.MaxHP - (float)combatStats.HP) / (float)combatStats.MaxHP)*/;
+            Exhaustion += (int)(50f * ((combatStats.MaxHP + 1 - combatStats.HP) / combatStats.MaxHP));
             OnQuest = false;
+            HealInterval = (combatStats.MaxHP - combatStats.HP + 1) / Exhaustion;
+            if(Exhaustion >= 100)
+            {
+                Die();
+            }
         }
-        else
-        {
-            Exhaustion -= 20;
+        //else
+        //{
+        //    Exhaustion -= 20;
            
-            if (Exhaustion < 0)
-                Exhaustion = 0;
-        }
+        //    if (Exhaustion < 0)
+        //        Exhaustion = 0;
+        //}
     }
 }
