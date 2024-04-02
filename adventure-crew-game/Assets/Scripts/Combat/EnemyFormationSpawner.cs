@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
             CombatEntityEnemy enemyEntityComponent = enemyEntity.GetComponent<CombatEntityEnemy>();
             enemyEntityComponent.SetStats(fs.enemy);
             enemyEntity.transform.localPosition = fs.position;
+            enemyEntity.transform.localScale = fs.scale;
         }
     }
 
