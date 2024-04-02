@@ -15,9 +15,13 @@ MonoBehaviour:
   formation:
   - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
     position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
   - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
     position: {x: -3.74, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
   - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
     position: {x: 3.74, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
   - enemy: {fileID: 11400000, guid: 18975ef1aa19f1c49a325bed2dc396e0, type: 2}
     position: {x: 0, y: 0, z: 2.03}
+    scale: {x: 2, y: 2, z: 2}
