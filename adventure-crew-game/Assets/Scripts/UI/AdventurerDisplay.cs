@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,23 +6,27 @@ public class AdventurerDisplay : MonoBehaviour
 {
     public Button generateButton;
     public Button deleteButton;
+
     [Header("Assets/Prefabs/UI/AdventurerInfo")]
     public GameObject UIPrefab;
 
-    [Header("UI element's parent")]
-    public GameObject content;
+    [Header("UI element's parent")] public GameObject content;
 
     //Don't show it, otherwise it causes a unity buf with inspector
     private void Start()
     {
-        if(generateButton != null) generateButton.onClick.AddListener(Generate);
-        if(deleteButton != null) deleteButton.onClick.AddListener(Remove);
+        if (generateButton != null) generateButton.onClick.AddListener(Generate);
+        if (deleteButton != null) deleteButton.onClick.AddListener(Remove);
+    }
 
+    private void OnEnable()
+    {
         UpdateDisplay();
     }
+
     private void OnDisable()
     {
-        if(generateButton != null) generateButton.onClick.RemoveAllListeners();
+        if (generateButton != null) generateButton.onClick.RemoveAllListeners();
         if (deleteButton != null) deleteButton.onClick.RemoveAllListeners();
     }
 
@@ -34,6 +36,7 @@ public class AdventurerDisplay : MonoBehaviour
 
         UpdateDisplay();
     }
+
     private void Remove()
     {
         if (AdventurerList.Adventurers.Count <= 0) return;
@@ -42,6 +45,7 @@ public class AdventurerDisplay : MonoBehaviour
         AdventurerList.RemoveAnAdventurer(index);
         UpdateDisplay();
     }
+
     public void UpdateDisplay()
     {
         AdventurerList.ClearDeads();
@@ -50,6 +54,7 @@ public class AdventurerDisplay : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
         for (int i = 0; i < AdventurerList.Adventurers.Count; i++)
         {
             //There are two prefabs: one for Shop, one for combat
@@ -58,11 +63,10 @@ public class AdventurerDisplay : MonoBehaviour
             element.Init(i, AdventurerList.Adventurers[i].GetStats());
 
             //The combat one also have FormationController
-            if(element.transform.TryGetComponent(out FormationController formationController))
+            if (element.transform.TryGetComponent(out FormationController formationController))
             {
                 formationController.SetID(i);
             }
         }
     }
-    
 }
