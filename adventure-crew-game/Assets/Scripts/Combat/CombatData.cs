@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public static class CombatData
@@ -13,4 +14,13 @@ public static class CombatData
         activeEnemyFormation = formation;
     }
 
+    public static void Reset()
+    {
+        isQuestEngaged = false;
+        questEncounterIndex = 0;
+        lastMapLocation = Vector3.zero;
+        activeQuest = null;
+        lastCombatWon = false;
+        activeEnemyFormation = null;
+    }
 }
