@@ -17,7 +17,7 @@ namespace Shop
         public string Description => description;
         public float Price => price;
 
-        public abstract bool TryPurchaseProduct();
+        public abstract bool TryPurchaseProduct(out string errorMessage);
         public abstract void OnPurchaseSuccessful();
 
         public virtual void OnPurchaseFailed()

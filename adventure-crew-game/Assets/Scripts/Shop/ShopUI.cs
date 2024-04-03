@@ -1,6 +1,7 @@
 using Backend.IAP;
 using Shop;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,13 +45,16 @@ namespace Test.IAP
         {
             if (_currentProduct != null)
             {
-                if (!_currentProduct.TryPurchaseProduct())
-                    Debug.LogError($"Failed to purchase product with ID: {_currentProduct.ID}");
+                if (!_currentProduct.TryPurchaseProduct(out var errorMessage))
+                {
+                    ErrorPopup.ShowError(errorMessage);
+                    Debug.Log($"Failed to purchase product with ID: {_currentProduct.ID}\t Error: {errorMessage}");
+                }
             }
             else
-            {
-                Debug.LogError("No product selected or product not found.");
-            }
+                ErrorPopup.ShowError("No product selected or product not found.");
+            
+            _currentProduct = null;
         }
     }
 }

@@ -8,10 +8,12 @@ namespace Shop
     public class AdventurerProduct : Product
     {
         [SerializeField] private Adventurer.Rank adventurerRank;
-        public override bool TryPurchaseProduct()
+        public override bool TryPurchaseProduct(out string errorMessage)
         {
+            errorMessage = "";
             if (!CurrencySystem.RemoveCoins((int)Price))
             {
+                errorMessage = "Not enough gold!";
                 OnPurchaseFailed();
                 return false;
             }

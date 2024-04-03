@@ -8,8 +8,9 @@ namespace Shop
     public class IAPProduct : Product
     {
         [SerializeField] private int coinsToGive;
-        public override bool TryPurchaseProduct()
+        public override bool TryPurchaseProduct(out string errorMessage)
         {
+            errorMessage = "";
             OnPurchaseSuccessful();
             return true;
         }

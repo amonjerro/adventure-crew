@@ -29,12 +29,12 @@ MonoBehaviour:
     price: 10
     coinsToGive: 1000
   - id: Product4
+    name: 2500 Gold
+    description: Buy 2500 Gold Coins for 25 bucks!!
+    price: 25
+    coinsToGive: 5000
+  - id: Product5
     name: 5000 Gold
     description: Buy 5000 Gold Coins for 35 bucks!!
     price: 35
     coinsToGive: 5000
-  - id: Product5
-    name: 
-    description: 
-    price: 0
-    coinsToGive: 0
