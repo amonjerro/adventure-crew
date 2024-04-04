@@ -28,7 +28,9 @@ public class FollowMouse : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             AdventurerList.Adventurers[controller.ID].OnQuest = true;
-            if(ReadyToFight != null) ReadyToFight();
+            this.gameObject.GetComponent<Rigidbody>().detectCollisions = true;
+            this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            if (ReadyToFight != null) ReadyToFight();
             Destroy(this);
         }
         if(Input.GetMouseButtonDown(1))

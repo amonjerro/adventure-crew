@@ -34,6 +34,8 @@ public class FormationController : MonoBehaviour
         GameObject go = Instantiate(adventurer);
         go.GetComponent<CombatEntityAdventurer>().InititCombatAdventurer(AdventurerList.Adventurers[id].GetStats(), id);
         go.AddComponent<FollowMouse>().FollowMouseInit(this);
+        go.GetComponent<Rigidbody>().detectCollisions = false;
+        go.GetComponent<Rigidbody>().useGravity = false;
     }
     public void ResetButton()
     {
