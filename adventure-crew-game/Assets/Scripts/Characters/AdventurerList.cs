@@ -88,4 +88,9 @@ public static class AdventurerList
             Adventurers.Remove(ad);
         }
     }
+
+    public static void Reset()
+    {
+        Adventurers.Clear();
+    }
 }
