@@ -12,7 +12,7 @@ public class Adventurer : ICharacter
     {
         Expert = 4,
         Veteran = 3,
-        Seasons = 2,
+        Seasoned = 2,
         Journeyman = 1,
         Novice = 0
 
