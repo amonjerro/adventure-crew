@@ -14,7 +14,7 @@ public static class AdventurerList
         int hp = rnd.Next(75, 100) * (rankInt + 1);
         int maxHP = hp;
         int damage = rnd.Next(8, 15) * (rankInt + 1);
-        int agility = rnd.Next(1, 4) * (rankInt + 1);
+        int agility = rnd.Next(1, 4);
         float range = UnityEngine.Random.Range(1, 10);
         Stats stats = new Stats(hp, maxHP, damage, agility, range);
         Adventurer adventurer = new Adventurer(stats);
