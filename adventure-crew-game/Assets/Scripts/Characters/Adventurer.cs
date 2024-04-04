@@ -10,6 +10,7 @@ public class Adventurer : ICharacter
 
     public enum Rank
     {
+        S = 4,
         A = 3,
         B = 2,
         C = 1,
