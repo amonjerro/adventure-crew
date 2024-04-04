@@ -7,7 +7,8 @@ public class EnemySpawner : MonoBehaviour
     {
        foreach(FormationStruct fs in formation.formation)
         {
-            GameObject enemyEntity = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            Quaternion rotation = Quaternion.AngleAxis(fs.rotation.y, Vector3.up);
+            GameObject enemyEntity = Instantiate(enemyPrefab, transform.position, rotation);
             enemyEntity.transform.SetParent(transform);
             CombatEntityEnemy enemyEntityComponent = enemyEntity.GetComponent<CombatEntityEnemy>();
             enemyEntityComponent.SetStats(fs.enemy);
