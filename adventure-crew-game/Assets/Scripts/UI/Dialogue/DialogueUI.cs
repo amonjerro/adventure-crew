@@ -15,7 +15,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
 
     [SerializeField] private DialogueUIConfig config;
-    [SerializeField] private OnboardingManager onboarding;
+    public OnboardingManager onboarding;
 
     private int charPosition;
     private int dialoguePosition;
@@ -26,6 +26,8 @@ public class DialogueUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         background = this.transform.GetChild(0).gameObject;
         charMask = background.transform.GetChild(0).gameObject;
         charBox = charMask.transform.GetChild(0).gameObject;
@@ -40,7 +42,6 @@ public class DialogueUI : MonoBehaviour
         dialogueBox.GetComponent<TextMeshProUGUI>().text = config.Characters[charPosition].Dialogue[dialoguePosition];
 
 
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
