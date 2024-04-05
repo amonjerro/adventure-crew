@@ -90,7 +90,7 @@ public class PowerCursor : MonoBehaviour
         //Vector2 input = Vector2.Scale(value.Get<Vector2>(), mouseSensitivity);
         //center = new Vector3(Mathf.Clamp(center.x + input.x, -adjustedXClamp, adjustedXClamp), 1, Mathf.Clamp(center.z + input.y, -adjustedZClamp, adjustedZClamp));
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        int layer_mask = LayerMask.GetMask("Formation");
+        int layer_mask = LayerMask.GetMask("Battle");
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layer_mask))
         {
             center = hit.point;
@@ -102,4 +102,8 @@ public class PowerCursor : MonoBehaviour
         Execute();
     }
 
+    private void OnCancelAction(InputValue value)
+    {
+        powerCylinder.SetActive(false);
+    }
 }
