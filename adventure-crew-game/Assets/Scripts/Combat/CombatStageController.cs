@@ -13,6 +13,7 @@ public class CombatStageController : MonoBehaviour
     public GameObject formationUI;
     public GameObject postCombatUI;
     public GameObject powerUI;
+    public GameObject FormationPlane;//the formation boundary
 
     public TMP_Text resultText;
     private void OnEnable()
@@ -24,6 +25,7 @@ public class CombatStageController : MonoBehaviour
 
         startCombatButton.interactable = false;
         FollowMouse.ReadyToFight += () => startCombatButton.interactable = true;
+        
     }
     private void OnDisable()
     {
@@ -39,12 +41,14 @@ public class CombatStageController : MonoBehaviour
         formationUI.SetActive(true);
         postCombatUI.SetActive(false);
         powerUI.SetActive(false);
+        FormationPlane.SetActive(true);
     }
     private void StartCombat()
     {
         CombatManager.Instance.BattlefiledInitialization();
         formationUI.SetActive(false);
         powerUI.SetActive(true);
+        FormationPlane.SetActive(false);
     }
     private void EndCombat(bool win)
     {
