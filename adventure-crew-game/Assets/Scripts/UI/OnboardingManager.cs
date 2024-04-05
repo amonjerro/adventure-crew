@@ -13,6 +13,8 @@ public class OnboardingManager : MonoBehaviour
     private Dictionary<string, GameObject> mapDictionary;
     private Dictionary<string, GameObject> battleDictionary;
 
+    private bool onboardingStarted;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class OnboardingManager : MonoBehaviour
         mapDictionary = new Dictionary<string, GameObject>();
         battleDictionary = new Dictionary<string, GameObject>();
 
-        OnSceneChange(SceneManager.GetActiveScene(), SceneManager.GetActiveScene());
+        //OnSceneChange(SceneManager.GetActiveScene(), SceneManager.GetActiveScene());
     }
 
     // Update is called once per frame
@@ -86,16 +88,25 @@ public class OnboardingManager : MonoBehaviour
         Debug.Log(current.name + "" + next.name);
         canvas = GameObject.Find("Canvas").transform;
 
-        if(next.name == "MapScene")
+        dialogueUI = canvas.GetComponentInChildren<DialogueUI>(true);
+        Debug.Log(dialogueUI);
+        dialogueUI.onboarding = this;
+
+        if (next.name == "MapScene" && mapDictionary.Count == 0)
         {
-            for(int i=0; i<canvas.childCount; i++)
+            dialogueUI.gameObject.SetActive(true);
+
+            for (int i=0; i<canvas.childCount; i++)
             {
                 GameObject child = canvas.GetChild(i).gameObject;
                 mapDictionary.Add(child.name, child);
             }
+
         }
-        else if (next.name == "Battlefield-Non-Test")
+        else if (next.name == "Battlefield-Non-Test" && battleDictionary.Count == 0)
         {
+            dialogueUI.gameObject.SetActive(true);
+
             for (int i = 0; i < canvas.childCount; i++)
             {
                 GameObject child = canvas.GetChild(i).gameObject;
