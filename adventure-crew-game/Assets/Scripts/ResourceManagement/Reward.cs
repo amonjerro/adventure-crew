@@ -1,3 +1,4 @@
+[System.Serializable]
 public struct Reward
 {
     public int gold;
