@@ -27,3 +27,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9cdb6bb7331326d40bdf6dae4be066e2, type: 2}
   - {fileID: 11400000, guid: c9e4c4570b5ccc948ba9084975d59356, type: 2}
   - {fileID: 11400000, guid: 668e047cde0d43846a2a66c81b5b4674, type: 2}
+  reward:
+    gold: 1500
