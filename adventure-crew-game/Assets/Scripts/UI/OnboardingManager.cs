@@ -36,7 +36,7 @@ public class OnboardingManager : MonoBehaviour
 
     public void OnboardingTask(string task)
     {
-        GameObject currentObject;
+        GameObject currentObject = null;
         //DRYD
         switch (task)
         {
@@ -84,6 +84,7 @@ public class OnboardingManager : MonoBehaviour
                 currentObject.SetActive(false);
                 break;
         }
+
     }
     private void OnSceneChange(Scene current, Scene next)
     {

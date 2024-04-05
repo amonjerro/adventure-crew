@@ -1791,7 +1791,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823361863}
         m_TargetAssemblyTypeName: DialogueUI, Assembly-CSharp
         m_MethodName: AdvanceCharacter
         m_Mode: 1
@@ -1803,7 +1803,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823361864}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2245,7 +2245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &782032343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2408,7 +2408,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823361863}
         m_TargetAssemblyTypeName: DialogueUI, Assembly-CSharp
         m_MethodName: AdvanceCharacter
         m_Mode: 1
@@ -2420,7 +2420,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823361864}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -3280,6 +3280,24 @@ PrefabInstance:
 --- !u!224 &823361862 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2552503759876424045, guid: ccc7dda2f1eac42419d36491c951772e,
+    type: 3}
+  m_PrefabInstance: {fileID: 823361861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &823361863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3452260844307910292, guid: ccc7dda2f1eac42419d36491c951772e,
+    type: 3}
+  m_PrefabInstance: {fileID: 823361861}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823361864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93557931dc2e54543ad013aab93a625b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &823361864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1054409193242490802, guid: ccc7dda2f1eac42419d36491c951772e,
     type: 3}
   m_PrefabInstance: {fileID: 823361861}
   m_PrefabAsset: {fileID: 0}
@@ -6278,7 +6296,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823361863}
         m_TargetAssemblyTypeName: DialogueUI, Assembly-CSharp
         m_MethodName: AdvanceCharacter
         m_Mode: 1
@@ -6290,7 +6308,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823361864}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -6721,7 +6739,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823361863}
         m_TargetAssemblyTypeName: DialogueUI, Assembly-CSharp
         m_MethodName: AdvanceCharacter
         m_Mode: 1
@@ -6733,7 +6751,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 823361864}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
