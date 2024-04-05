@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 0
   locationIcons:
-  - {fileID: 21300000, guid: 9ff763cd9a0d2e849b3b3a87c1582f33, type: 3}
+  - {fileID: 21300000, guid: 86d18cbaf1edf914faab746beb39563a, type: 3}
   - {fileID: 21300000, guid: d9a18858ed857394483bf6de67793e6b, type: 3}
   - {fileID: 21300000, guid: 4c4ea1aeefeb8514e91f569f5a60b700, type: 3}
   locationName: 
