@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+
 
 
 [CreateAssetMenu(menuName = "ScriptableObjects/EnemyFormation")]
@@ -18,5 +18,6 @@ public struct FormationStruct
     public CombatStatsSO enemy;
     public Vector3 position;
     public Vector3 scale;
+    public Vector3 rotation;
 
 }
