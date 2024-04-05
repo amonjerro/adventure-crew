@@ -10,8 +10,9 @@ public class QuestUIManager : UIMenu
     public GameObject panel;
     public GameObject nextEncounterButton;
     Quest content;
+    MapLocation mapLocation;
 
-    public void UpdateUI(Quest q)
+    public void UpdateUI(Quest q, MapLocation m)
     {
         nextEncounterButton.SetActive(false);
         panel.SetActive(true);
@@ -21,6 +22,7 @@ public class QuestUIManager : UIMenu
         firstButton.GetComponentInChildren<TextMeshProUGUI>().text = "Accept Quest";
         firstButton.GetComponent<QuestUIAction>().SetAction(ActionTypes.Accept);
         secondButtonText.text = "Reject";
+        mapLocation = m;
         content = q;
     }
 
@@ -47,7 +49,7 @@ public class QuestUIManager : UIMenu
     public void AcceptQuest()
     {
         QuestManager qm = GetComponentInParent<QuestManager>();
-        qm.EngageQuest(content);
+        qm.EngageQuest(content, mapLocation);
         ShowEncounterButton();
         
     }

@@ -27,18 +27,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030146452831877529}
-  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 126, y: 102}
-  m_SizeDelta: {x: 35, y: 35}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &526423927742665860
 CanvasRenderer:
@@ -146,4 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd121bb7a84b06499154b88624937a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
+  locationIcons:
+  - {fileID: 21300000, guid: 9ff763cd9a0d2e849b3b3a87c1582f33, type: 3}
+  - {fileID: 21300000, guid: d9a18858ed857394483bf6de67793e6b, type: 3}
+  - {fileID: 21300000, guid: 4c4ea1aeefeb8514e91f569f5a60b700, type: 3}
   locationName: 
+  quests: []
