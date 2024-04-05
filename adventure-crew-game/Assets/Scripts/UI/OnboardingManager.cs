@@ -40,6 +40,8 @@ public class OnboardingManager : MonoBehaviour
         //DRYD
         switch (task)
         {
+            case "battle":
+                break;
             case "roster":
                 mapDictionary.TryGetValue("Roster", out currentObject);
                 currentObject.GetComponent<Button>().interactable = true;
@@ -94,6 +96,7 @@ public class OnboardingManager : MonoBehaviour
 
         if (next.name == "MapScene" && mapDictionary.Count == 0)
         {
+            dialogueUI.SetCharPosition(1);
             dialogueUI.gameObject.SetActive(true);
 
             for (int i=0; i<canvas.childCount; i++)
