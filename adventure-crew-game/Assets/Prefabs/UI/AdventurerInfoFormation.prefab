@@ -404,6 +404,7 @@ MonoBehaviour:
   ID: 0
   rankText: {fileID: 287113020306052180}
   exhaustionText: {fileID: 6880069425318117181}
+  dataElement: {fileID: 0}
 --- !u!114 &8261291426328708065
 MonoBehaviour:
   m_ObjectHideFlags: 0

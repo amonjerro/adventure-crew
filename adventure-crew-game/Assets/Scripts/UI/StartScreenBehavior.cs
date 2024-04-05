@@ -17,8 +17,12 @@ public class StartScreenBehavior : UIMenu
 
     public void StartGame()
     {
+        SceneManager.LoadScene(1);
+    }
+
+    public void StartTutorial()
+    {
         encounter.OnStart();
-        //SceneManager.LoadScene(1);
     }
 
     public void QuitGame()

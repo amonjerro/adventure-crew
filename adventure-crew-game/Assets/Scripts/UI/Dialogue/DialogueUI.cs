@@ -68,13 +68,15 @@ public class DialogueUI : MonoBehaviour
     private void OnboardingCheck()
     {
         if(charPosition == 0 && dialoguePosition >= config.Characters[0].Dialogue.Length) { onboarding.OnboardingTask("battle"); }
-        else if (charPosition == 1 && dialoguePosition >= config.Characters[1].Dialogue.Length) { onboarding.OnboardingTask("roster"); }
-        else if(charPosition == 2 && dialoguePosition >= config.Characters[2].Dialogue.Length) { onboarding.OnboardingTask("contracts"); }
-        else if (charPosition == 3 && dialoguePosition >= config.Characters[3].Dialogue.Length) { onboarding.OnboardingTask("shop"); }
-        else if (charPosition == 4 && dialoguePosition < config.Characters[4].Dialogue.Length) { onboarding.OnboardingTask("map"); }
-        else if (charPosition == 4 && dialoguePosition >= config.Characters[4].Dialogue.Length) { onboarding.OnboardingTask("midland"); }
-        else if (charPosition == 5) { onboarding.OnboardingTask("quest"); }
+        else if (charPosition == 1 && dialoguePosition >= config.Characters[1].Dialogue.Length) { onboarding.OnboardingTask("battle start"); }
+        else if (charPosition == 2 && dialoguePosition >= config.Characters[2].Dialogue.Length) { onboarding.OnboardingTask("roster"); }
+        else if (charPosition == 3 && dialoguePosition >= config.Characters[3].Dialogue.Length) { onboarding.OnboardingTask("contracts"); }
+        else if (charPosition == 4 && dialoguePosition >= config.Characters[4].Dialogue.Length) { onboarding.OnboardingTask("shop"); }
+        else if (charPosition == 5 && dialoguePosition < config.Characters[5].Dialogue.Length) { onboarding.OnboardingTask("map"); }
+        else if (charPosition == 5 && dialoguePosition >= config.Characters[5].Dialogue.Length) { onboarding.OnboardingTask("midland"); }
+        else if (charPosition == 6 && dialoguePosition >= config.Characters[6].Dialogue.Length) { onboarding.OnboardingTask("quest"); }
     }
+
 
     private void OnEnable()
     {
