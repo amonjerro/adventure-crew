@@ -136,7 +136,8 @@ public class OnboardingManager : MonoBehaviour
             mapDictionary.TryGetValue("Gold", out currentObject);
             currentObject.GetComponent<Button>().interactable = true;
 
-            Debug.Log("if");
+            mapDictionary.TryGetValue("Gray Out", out currentObject);
+            currentObject.SetActive(false);
         }
         else if(current.name == "Battlefield-Non-Test")
         {
@@ -188,7 +189,7 @@ public class OnboardingManager : MonoBehaviour
                 dialogueUI.gameObject.SetActive(true);
 
                 mapDictionary.TryGetValue("Gray Out", out currentObject);
-                currentObject.SetActive(false);
+                currentObject.SetActive(true);
             }
         }
         else if (next.name == "Battlefield-Non-Test")
