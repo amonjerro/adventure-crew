@@ -85,10 +85,16 @@ public class PowerCursor : MonoBehaviour
     // Mouse controls adapted from Between Root and Bough and originally implemented by Jared Goronkin
     private void OnLook(InputValue value)
     {
-        float adjustedXClamp = xClamp - powerCylinder.transform.localScale.x * 0.5f;
-        float adjustedZClamp = zClamp - powerCylinder.transform.localScale.z * 0.5f;
-        Vector2 input = Vector2.Scale(value.Get<Vector2>(), mouseSensitivity);
-        center = new Vector3(Mathf.Clamp(center.x + input.x, -adjustedXClamp, adjustedXClamp), 1, Mathf.Clamp(center.z + input.y, -adjustedZClamp, adjustedZClamp));
+        //float adjustedXClamp = xClamp - powerCylinder.transform.localScale.x * 0.5f;
+        //float adjustedZClamp = zClamp - powerCylinder.transform.localScale.z * 0.5f;
+        //Vector2 input = Vector2.Scale(value.Get<Vector2>(), mouseSensitivity);
+        //center = new Vector3(Mathf.Clamp(center.x + input.x, -adjustedXClamp, adjustedXClamp), 1, Mathf.Clamp(center.z + input.y, -adjustedZClamp, adjustedZClamp));
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        int layer_mask = LayerMask.GetMask("Battle");
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layer_mask))
+        {
+            center = hit.point;
+        }
     }
 
     private void OnExecuteAction(InputValue value)
@@ -96,4 +102,8 @@ public class PowerCursor : MonoBehaviour
         Execute();
     }
 
+    private void OnCancelAction(InputValue value)
+    {
+        powerCylinder.SetActive(false);
+    }
 }

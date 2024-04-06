@@ -26,3 +26,5 @@ MonoBehaviour:
   encounters:
   - {fileID: 11400000, guid: 9a5f33456513397409e79fd7c3e61cdc, type: 2}
   - {fileID: 11400000, guid: a228b1369cfc0494db0491546cb0c3cb, type: 2}
+  reward:
+    gold: 800

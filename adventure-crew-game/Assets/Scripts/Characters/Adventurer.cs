@@ -10,10 +10,12 @@ public class Adventurer : ICharacter
 
     public enum Rank
     {
-        A = 3,
-        B = 2,
-        C = 1,
-        D = 0
+        Expert = 4,
+        Veteran = 3,
+        Seasoned = 2,
+        Journeyman = 1,
+        Novice = 0
+
     }
     public Rank rank { get; set; }
 
