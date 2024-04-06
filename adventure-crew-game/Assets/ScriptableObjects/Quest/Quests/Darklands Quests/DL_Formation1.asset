@@ -16,24 +16,18 @@ MonoBehaviour:
   - enemy: {fileID: 11400000, guid: 86c06256fc38b6b469d2a9ee4e38027b, type: 2}
     position: {x: -1.85, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 180, z: 0}
   - enemy: {fileID: 11400000, guid: 86c06256fc38b6b469d2a9ee4e38027b, type: 2}
     position: {x: 1.85, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 180, z: 0}
   - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
     position: {x: 3.7, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 180, z: 0}
   - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
     position: {x: -3.7, y: 0, z: 0}
     scale: {x: 0.75, y: 0.75, z: 0.75}
-    rotation: {x: 0, y: 180, z: 0}
   - enemy: {fileID: 11400000, guid: d7ac27af54b23dd4c8fa59f8300ebb19, type: 2}
     position: {x: 1.85, y: 0, z: 2.25}
     scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 180, z: 0}
   - enemy: {fileID: 11400000, guid: d7ac27af54b23dd4c8fa59f8300ebb19, type: 2}
     position: {x: -1.85, y: 0, z: 2.25}
     scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 180, z: 0}
