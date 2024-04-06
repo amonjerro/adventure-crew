@@ -1,4 +1,3 @@
-using Backend;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,9 +41,6 @@ public class PauseScreenBehavior : UIMenu
     public void BackToMainMenu()
     {
         //To do: Reset whatever is in DontDestroyOnLoad objects
-        CombatData.Reset();
-        AdventurerList.Reset();
-        CurrencySystem.Instance.Reset();
 
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);

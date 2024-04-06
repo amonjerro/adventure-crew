@@ -34,10 +34,5 @@ namespace Backend
             PlayerPrefs.SetInt("Coins", Coins);
             return true;
         }
-
-        public void Reset()
-        {
-            PlayerPrefs.SetInt("Coins", StartingCoins);
-        }
     }
 }
