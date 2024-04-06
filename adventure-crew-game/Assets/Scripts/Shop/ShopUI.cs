@@ -35,7 +35,7 @@ namespace Test.IAP
             }
         }
 
-        private void SetCurrentProductID(string id)
+        public void SetCurrentProductID(string id)
         {
             _currentProduct = productConfig.GetProductById(id);
             purchasePopup.SetActive(true);
