@@ -15,7 +15,47 @@ MonoBehaviour:
   characters:
   - charName: Griffith
     dialogue:
-    - Hi there
-    - My name is Griffith Berserk
+    - 'There''s nowhere for you to flee to. '
+    - Choose your strongest men and prepare to fight.
+    charBox: {r: 0.08627451, g: 0.2784314, b: 0.54901963, a: 1}
+    charArt: {fileID: 21300000, guid: aec913b28bfc6ab4a86163bcf7861cef, type: 3}
+  - charName: Griffith
+    dialogue:
+    - An interesting formation...
+    - No matter. Have at thee!
+    charBox: {r: 0.08627451, g: 0.2784314, b: 0.54901963, a: 1}
+    charArt: {fileID: 21300000, guid: aec913b28bfc6ab4a86163bcf7861cef, type: 3}
+  - charName: Griffith
+    dialogue:
+    - You fought well, but it is time to accept your defeat. You seem resourceful,
+      if you wish to continue living you'll join us.
+    - I am Griffith, leader of the Band of the Hawk.
+    - Firstly, let me introduce you to your squad.
+    charBox: {r: 0.08627451, g: 0.2784314, b: 0.54901963, a: 1}
+    charArt: {fileID: 21300000, guid: aec913b28bfc6ab4a86163bcf7861cef, type: 3}
+  - charName: Griffith
+    dialogue:
+    - Here you can view the status of all of your soldiers.
+    - However, you'll need more than just these five to contend with our enemies.
+    charBox: {r: 0.08627451, g: 0.2784314, b: 0.54901963, a: 1}
+    charArt: {fileID: 21300000, guid: aec913b28bfc6ab4a86163bcf7861cef, type: 3}
+  - charName: Griffith
+    dialogue:
+    - While we have volunteers such as yourself, the majority of our forces are acquired
+      via contracts.
+    - 'We can provide you some funds to get started. '
+    - If you ever need additional funds you can request aid from our reserves.
+    charBox: {r: 0.08627451, g: 0.2784314, b: 0.54901963, a: 1}
+    charArt: {fileID: 21300000, guid: aec913b28bfc6ab4a86163bcf7861cef, type: 3}
+  - charName: Griffith
+    dialogue:
+    - Now then, let's put your new soldiers to use.
+    - We are currently fighting on behalf of Midland. It is an excellent place to
+      let you practice.
+    charBox: {r: 0.08627451, g: 0.2784314, b: 0.54901963, a: 1}
+    charArt: {fileID: 21300000, guid: aec913b28bfc6ab4a86163bcf7861cef, type: 3}
+  - charName: Griffith
+    dialogue:
+    - Select your battlefield and begin when ready.
     charBox: {r: 0.08627451, g: 0.2784314, b: 0.54901963, a: 1}
     charArt: {fileID: 21300000, guid: aec913b28bfc6ab4a86163bcf7861cef, type: 3}

@@ -57,7 +57,8 @@ MonoBehaviour:
   charArt: {fileID: 7564379762451094663}
   charName: {fileID: 3502254350428043346}
   dialogueBox: {fileID: 3784661871950818297}
-  config: {fileID: 11400000, guid: d23d9a48a20d2fe4ab5735eeafe02c0c, type: 2}
+  config: {fileID: 11400000, guid: a8323bdf23ca7d645a4cd607728a521c, type: 2}
+  onboarding: {fileID: 0}
 --- !u!1 &1474105272208158534
 GameObject:
   m_ObjectHideFlags: 0
