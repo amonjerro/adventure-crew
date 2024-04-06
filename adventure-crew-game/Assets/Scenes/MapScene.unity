@@ -5321,7 +5321,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5258696188030269663, guid: fd14bd4fa4b46344b89edcea7099bd95,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1584875219}
+      addedObject: {fileID: 1565278321}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4477013088702973330, guid: fd14bd4fa4b46344b89edcea7099bd95,
         type: 3}
@@ -6101,25 +6101,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1584875218
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1584875219}
-  - component: {fileID: 1584875222}
-  - component: {fileID: 1584875221}
-  - component: {fileID: 1584875220}
-  m_Layer: 5
-  m_Name: Temp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!224 &1565278321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6140,6 +6121,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1584875218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1565278321}
+  - component: {fileID: 1584875222}
+  - component: {fileID: 1584875221}
+  - component: {fileID: 1584875220}
+  m_Layer: 5
+  m_Name: Temp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &1584875220
 MonoBehaviour:
   m_ObjectHideFlags: 0
