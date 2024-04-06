@@ -1,12 +1,17 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatEntity : MonoBehaviour
 {
     public CombatEntity target = null;
-    protected Stats stats;
+
+    private float damageMultiplier = 1;
+    [SerializeField] protected Stats stats;
     private float cooldown;
     private float timer = 0.0f;
+    private IEnumerator coroutine;
     public enum CurrentAction
     {
         idle,
@@ -24,6 +29,9 @@ public class CombatEntity : MonoBehaviour
         //tag check
         if (CompareTag("Adventurer") == false && CompareTag("Enemy") == false) Debug.LogWarning("This entity is set to the wrong tag");
         cooldown = 1.0f / stats.Agility;
+
+        //For ranged attack VFX
+        if(stats.Range > 2) transform.AddComponent<RangedVFXController>();
     }
 
     public void DecideCombatAction()
@@ -37,11 +45,8 @@ public class CombatEntity : MonoBehaviour
         }
         else // move or attack
         {
-            //Debug.Log("Distance: " + (target.transform.position - transform.position).magnitude);
-
             if ((target.transform.position - transform.position).magnitude > stats.Range) 
             {
-                Debug.Log(gameObject.name + "'s action should be moving");
                 currentAction = CurrentAction.moving; 
             }
 
@@ -100,22 +105,48 @@ public class CombatEntity : MonoBehaviour
         if (timer <= 0.0) 
         {
             timer = cooldown;
-            target.TakeDamage(damage);
+            target.TakeDamage((int) (damage * damageMultiplier));
 
             //visual
             TurnToTarget(target.transform.position);
+            if (OnAttack != null) OnAttack(transform.position + Vector3.up, target.transform.position + Vector3.up);
         }
         else
         {
             timer -= Time.deltaTime;
         }
     }
+    public Action<Vector3, Vector3> OnAttack;
+    //Subscribed by: RangedVFXController
+
+    public void HealDamage(int value)
+    {
+        stats.HP = Mathf.Clamp(stats.HP + value, 0, stats.MaxHP);
+        OnStatsChanged();
+    }
+
+    public void ResetDamage()
+    {
+        damageMultiplier = 1.0f;
+    }
+
+    public void BuffDamage(int duration)
+    {
+        damageMultiplier = 1.5f;
+        coroutine = RunBuffTimer(duration);
+        StartCoroutine(coroutine);
+    }
+
+    public void DebuffDamage(int duration)
+    {
+        damageMultiplier = 0.5f;
+        coroutine = RunBuffTimer(duration);
+        StartCoroutine(coroutine);
+    }
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Got damage " + damage);
         stats.HP -= damage;
-        Debug.Log(gameObject.name + "'s HP: " + stats.HP);
 
         //am I dead?
         if (stats.HP <= 0)
@@ -126,15 +157,16 @@ public class CombatEntity : MonoBehaviour
 
         OnStatsChanged();
     }
+
     virtual protected void OnStatsChanged()
     {
         //This function is for modifying adventurer's stats in scriptable object
         //for enemy, this function can left blank
-        if(StatsChanged != null) StatsChanged();
+        if(StatsChanged != null) StatsChanged(stats.HP, stats.MaxHP);
     }
 
-    public Action StatsChanged;
-    //This action is subscribed by: HealthBar
+    public Action<float, float> StatsChanged;
+    //This action is subscribed by: HealthBarController
 
     private void TurnToTarget(Vector3 lookPos)
     {
@@ -143,8 +175,16 @@ public class CombatEntity : MonoBehaviour
 
     private void Die()
     {
-        //Debug.Log("I die!");
         CombatManager.Instance.DestroyAnEntity(this, tag);
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+
+        if (transform.GetComponentInChildren<HealthBarController>() != null)
+        {
+            transform.GetComponentInChildren<HealthBarController>().UnsubscribeEvents();
+        }
         Destroy(gameObject);
     }
 
@@ -162,5 +202,11 @@ public class CombatEntity : MonoBehaviour
                 break;
             default: break;
         }
+    }
+
+    IEnumerator RunBuffTimer(int effect)
+    {
+        yield return new WaitForSeconds(effect);
+        ResetDamage();
     }
 }

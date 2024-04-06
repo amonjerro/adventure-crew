@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Backend;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,9 +7,22 @@ public class StartScreenBehavior : UIMenu
     public GameObject mainMenuHolder;
     public GameObject optionsHolder;
     public GameObject cursor;
+
+    [SerializeField] private Encounter encounter;
+
+    private void Start()
+    {
+        CurrencySystem.Activate();
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void StartTutorial()
+    {
+        encounter.OnStart();
     }
 
     public void QuitGame()

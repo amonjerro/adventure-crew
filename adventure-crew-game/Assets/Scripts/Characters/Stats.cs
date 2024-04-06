@@ -4,14 +4,15 @@ using UnityEngine;
 [Serializable]
 public struct Stats
 {
-    public int HP;
-    public int MaxHP;
+
+    public float HP;
+    public float MaxHP;
     public int Damage;
     public int Agility;
     public float Range;
 
     // General Constructor
-    public Stats(int hp, int maxHP, int damage, int agility)
+    public Stats(float hp, float maxHP, int damage, int agility)
     {
         HP = hp;
         MaxHP = maxHP;
@@ -21,7 +22,7 @@ public struct Stats
     }
 
     // Constructor for ranged units
-    public Stats(int hp, int maxHP, int damage, int agility, float rng)
+    public Stats(float hp, float maxHP, int damage, int agility, float rng)
     {
         HP = hp;
         MaxHP = maxHP;

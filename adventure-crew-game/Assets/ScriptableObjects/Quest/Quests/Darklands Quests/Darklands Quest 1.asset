@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ad044bf2831fd4eb89bb40d1e7ebd6, type: 3}
+  m_Name: Darklands Quest 1
+  m_EditorClassIdentifier: 
+  description: We have been tasked to siege this fortress and take it for the King
+    of Midland. Reports suggest a swordsman with monstruous prowess defends it. Be
+    brave and lead us to victory!
+  completionText: 'No swordsman but an actual monster...
+
+
+    This is an ill omen,
+    but one that will not stop us on our quest. If that is the worst this world can
+    throw our way, then our victory is all but certain.'
+  questTitle: A Dark Fortress
+  _isComplete: 0
+  encounters:
+  - {fileID: 11400000, guid: afe92e6dc8041da459d5daf1ea669254, type: 2}
+  - {fileID: 11400000, guid: a3e9a8d9086cbc54992ab6559eb9e429, type: 2}
+  - {fileID: 11400000, guid: f2f04e07e9c41ca4db47056a17f299ed, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ad044bf2831fd4eb89bb40d1e7ebd6, type: 3}
+  m_Name: MountainsQuest
+  m_EditorClassIdentifier: 
+  description: 'Before we strike at the heart of the enemies'' defenses, we must
+    face against the Blue Whale Knights.
+
+
+    They are led by General Adon, a man
+    known for his pride and skill.'
+  completionText: This battle was harsh but we have proved to be greater than our
+    foes. The way to Doldrey now lies open - we must sieze this chance!
+  questTitle: Approach to Doldrey
+  _isComplete: 0
+  encounters:
+  - {fileID: 11400000, guid: 3116b4818516b6c4097f3149284ea564, type: 2}
+  - {fileID: 11400000, guid: 0579dc17cd0dd274fb11363cb6624d1f, type: 2}
+  - {fileID: 11400000, guid: 04ccc9f5120357648ae620ee40ebd2b9, type: 2}

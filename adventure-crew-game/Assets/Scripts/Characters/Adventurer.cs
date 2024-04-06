@@ -2,9 +2,20 @@ public class Adventurer : ICharacter
 {
     Stats combatStats;
     ICombatStrategy aiStrategy;
-    public int Exhaustion { get; set; }
+    public float Exhaustion { get; set; }
     public int XP { get; set; }
     public int Level { get; private set; }
+    public bool OnQuest { get; set; }
+    public float HealInterval { get; private set; }
+
+    public enum Rank
+    {
+        A = 3,
+        B = 2,
+        C = 1,
+        D = 0
+    }
+    public Rank rank { get; set; }
 
     public Adventurer(Stats stats)
     {
@@ -15,10 +26,15 @@ public class Adventurer : ICharacter
     {
         return combatStats;
     }
+    public void SetStats(Stats stats)
+    {
+        this.combatStats = stats;
+    }
 
     public void Die()
     {
-
+        AdventurerList.Adventurers.Remove(this);
+        AdventurerList.QuickSort(ref AdventurerList.Adventurers, 0, AdventurerList.Adventurers.Count - 1);
     }
 
     public void SetStrategy(ICombatStrategy strat)
@@ -42,5 +58,30 @@ public class Adventurer : ICharacter
 
             // Other bells and whistles, increase stats, etc.
         }
+    }
+
+    /// <summary>
+    /// If the Adventurers were just on a quest, they get more exhausted based on how much HP they have left.
+    /// If they were not on a quest, they regain exhaustion as a substitute for our wait time for the playtest.
+    /// </summary>
+    public void AdjustExhaustion()
+    {
+        if (OnQuest)
+        {
+            Exhaustion += (int)(50f * ((combatStats.MaxHP + 1 - combatStats.HP) / combatStats.MaxHP));
+            OnQuest = false;
+            HealInterval = (combatStats.MaxHP - combatStats.HP + 1) / Exhaustion;
+            if(Exhaustion >= 100)
+            {
+                Die();
+            }
+        }
+        //else
+        //{
+        //    Exhaustion -= 20;
+           
+        //    if (Exhaustion < 0)
+        //        Exhaustion = 0;
+        //}
     }
 }

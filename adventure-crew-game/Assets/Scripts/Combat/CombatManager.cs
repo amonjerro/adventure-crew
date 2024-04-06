@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ public class CombatManager : MonoBehaviour
     public List<CombatEntity> adventurers = new List<CombatEntity>();
     public List<CombatEntity> enemies = new List<CombatEntity>();
 
+
     //probably waiting for the singleton service
     #region Singleton
     public static CombatManager Instance;
@@ -18,10 +20,7 @@ public class CombatManager : MonoBehaviour
         else if (Instance != this) Destroy(gameObject);
     }
     #endregion
-    private void Start()
-    {
-        BattlefiledInitialization();
-    }
+    
     public void BattlefiledInitialization() 
     {
         if (!StartCombat())
@@ -106,15 +105,21 @@ public class CombatManager : MonoBehaviour
         Debug.Log("Combat over!!!");
         if (adventurers.Count == 0)
         {
+            if (combatEnded != null) combatEnded(false);
             print("You lose!!!");
         }
         else if (enemies.Count == 0)
         {
+            if (combatEnded != null) combatEnded(true);
             print("You won!!!");
+            CombatData.lastCombatWon = true;
         }
         else Debug.LogWarning("If you get this message, there is a bug, Tsingtao");
 
         //Back to the map scene we go.
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        
     }
+    public Action<bool> combatEnded;
+    //this action is subscribed by: CombatStageController
 }

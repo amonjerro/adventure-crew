@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a455633a3d0fa524baae3f0157bd41a5, type: 3}
+  m_Name: DL_Formation1
+  m_EditorClassIdentifier: 
+  formation:
+  - enemy: {fileID: 11400000, guid: 86c06256fc38b6b469d2a9ee4e38027b, type: 2}
+    position: {x: -1.85, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+  - enemy: {fileID: 11400000, guid: 86c06256fc38b6b469d2a9ee4e38027b, type: 2}
+    position: {x: 1.85, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+  - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
+    position: {x: 3.7, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+  - enemy: {fileID: 11400000, guid: 30c0e2296de27c9458f80e6410e0035e, type: 2}
+    position: {x: -3.7, y: 0, z: 0}
+    scale: {x: 0.75, y: 0.75, z: 0.75}
+  - enemy: {fileID: 11400000, guid: d7ac27af54b23dd4c8fa59f8300ebb19, type: 2}
+    position: {x: 1.85, y: 0, z: 2.25}
+    scale: {x: 1, y: 1, z: 1}
+  - enemy: {fileID: 11400000, guid: d7ac27af54b23dd4c8fa59f8300ebb19, type: 2}
+    position: {x: -1.85, y: 0, z: 2.25}
+    scale: {x: 1, y: 1, z: 1}

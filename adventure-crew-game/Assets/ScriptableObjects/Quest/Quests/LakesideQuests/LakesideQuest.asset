@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ad044bf2831fd4eb89bb40d1e7ebd6, type: 3}
+  m_Name: LakesideQuest
+  m_EditorClassIdentifier: 
+  description: 'Before us lies the impregnable Fortress of Doldrey. No army has breached
+    its walls in over 100 years. His Majesty has been throwing his men at it for
+    the better part of this campaign and progress has been made.
+
+
+    He gives the
+    charge to the Band of the Hawk - we must not falter.'
+  completionText: Astounding! No other living man can claim to the glory we have
+    achieved today. For this, there will be endless praise and rewards unlike any
+    we have seen before.
+  questTitle: The Fortress of Doldrey
+  _isComplete: 0
+  encounters:
+  - {fileID: 11400000, guid: 5398596c08a59e54f89b3df33aa41892, type: 2}
+  - {fileID: 11400000, guid: a9dec8b0cce4f094097d6e9d4b4a7f9a, type: 2}
+  - {fileID: 11400000, guid: 23c5e379e34096c4f8dffb1e3f290bcf, type: 2}
+  - {fileID: 11400000, guid: 1b2f4f033e954e84a965d394554e4a34, type: 2}
+  - {fileID: 11400000, guid: ad7374afe0c8ac44b9526454d0b7dbd8, type: 2}
