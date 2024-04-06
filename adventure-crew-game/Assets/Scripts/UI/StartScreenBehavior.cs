@@ -8,6 +8,8 @@ public class StartScreenBehavior : UIMenu
     public GameObject optionsHolder;
     public GameObject cursor;
 
+    [SerializeField] private Encounter encounter;
+
     private void Start()
     {
         CurrencySystem.Activate();
@@ -16,6 +18,11 @@ public class StartScreenBehavior : UIMenu
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void StartTutorial()
+    {
+        encounter.OnStart();
     }
 
     public void QuitGame()

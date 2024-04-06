@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
 public class DisplayCoin : MonoBehaviour
 {
     public TMP_Text coinText;
@@ -11,9 +10,8 @@ public class DisplayCoin : MonoBehaviour
     private void Start()
     {
         coinText = GetComponent<TMP_Text>();
-        InvokeRepeating(nameof(updateCoinText), 0.0f, 1.0f);
+        InvokeRepeating(nameof(updateCoinText), 1.0f, 1.0f);
     }
-
     private void updateCoinText()
     {
         coinText.text = "Gold: " + CurrencySystem.Coins.ToString();
