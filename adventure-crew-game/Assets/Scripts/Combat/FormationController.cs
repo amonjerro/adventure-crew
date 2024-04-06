@@ -8,6 +8,7 @@ public class FormationController : MonoBehaviour
 {
     public int ID;
     public GameObject adventurer;
+    [SerializeField] private Vector3 spawnPos;
     private Button selfButton;
 
     private void Start()
@@ -32,8 +33,11 @@ public class FormationController : MonoBehaviour
     {
         if (AdventurerList.Adventurers[id].GetStats().HP <= 0) return;
         GameObject go = Instantiate(adventurer);
+        go.transform.position = spawnPos;
         go.GetComponent<CombatEntityAdventurer>().InititCombatAdventurer(AdventurerList.Adventurers[id].GetStats(), id);
         go.AddComponent<FollowMouse>().FollowMouseInit(this);
+        go.GetComponent<Rigidbody>().detectCollisions = false;
+        go.GetComponent<Rigidbody>().useGravity = false;
     }
     public void ResetButton()
     {

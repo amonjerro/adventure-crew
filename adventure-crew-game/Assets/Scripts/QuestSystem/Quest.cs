@@ -1,3 +1,4 @@
+using Backend;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,7 @@ public class Quest : ScriptableObject
     public void CompleteQuest()
     {
         _isComplete = true;
+        CurrencySystem.AddCoins(reward.gold);
     }
 
     public bool isQuestComplete()

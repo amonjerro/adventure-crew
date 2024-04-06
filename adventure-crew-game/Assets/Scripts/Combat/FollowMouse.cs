@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class FollowMouse : MonoBehaviour
 {
     private FormationController controller;
+    public bool withinBoundary = false;
     public void FollowMouseInit(FormationController controller)
     {
         this.controller = controller;
@@ -18,7 +19,9 @@ public class FollowMouse : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layer_mask))
         {
             transform.position = hit.point;
+            withinBoundary = true;
         }
+        else withinBoundary = false;
     }
     public static Action ReadyToFight;
     //This action is subscribed by: CombatStageController
@@ -27,8 +30,11 @@ public class FollowMouse : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            if (!withinBoundary) return;
             AdventurerList.Adventurers[controller.ID].OnQuest = true;
-            if(ReadyToFight != null) ReadyToFight();
+            this.gameObject.GetComponent<Rigidbody>().detectCollisions = true;
+            this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            if (ReadyToFight != null) ReadyToFight();
             Destroy(this);
         }
         if(Input.GetMouseButtonDown(1))

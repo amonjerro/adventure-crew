@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311cee6487ed422f8646d8db54bec5b1, type: 3}
+  m_Name: IAP Product Config
+  m_EditorClassIdentifier: 
+  products:
+  - id: Product1
+    name: 100 Gold
+    description: Buy 100 Gold Coins for a buck!!
+    price: 1
+    coinsToGive: 100
+  - id: Product2
+    name: 500 Gold
+    description: Buy 500 Gold Coins for 5 bucks!!
+    price: 5
+    coinsToGive: 500
+  - id: Product3
+    name: 1000 Gold
+    description: Buy 1000 Gold Coins for 10 bucks!!
+    price: 10
+    coinsToGive: 1000
+  - id: Product4
+    name: 2500 Gold
+    description: Buy 2500 Gold Coins for 25 bucks!!
+    price: 25
+    coinsToGive: 5000
+  - id: Product5
+    name: 5000 Gold
+    description: Buy 5000 Gold Coins for 35 bucks!!
+    price: 35
+    coinsToGive: 5000
