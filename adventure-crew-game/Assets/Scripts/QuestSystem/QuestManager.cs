@@ -5,6 +5,7 @@ public class QuestManager : MonoBehaviour
 {
     private bool _isEngaged = false;
     private Quest activeQuest;
+    private MapLocation activeMapLocation;
     private int encounterIndex;
     [SerializeField]
     QuestUIManager uiManager;
@@ -14,12 +15,15 @@ public class QuestManager : MonoBehaviour
         return _isEngaged;
     }
 
-    public void EngageQuest(Quest q)
+    public void EngageQuest(Quest q, MapLocation m)
     {
         _isEngaged = true;
         encounterIndex = 0;
         activeQuest = q;
+        activeMapLocation = m;
+        activeMapLocation.UpdateLocationStatus(MapLocation.LocationStatus.InProgress);
         CombatData.activeQuest = activeQuest;
+        CombatData.activeMapLocation = m.GetName();
         CombatData.isQuestEngaged = true;
     }
     
@@ -28,6 +32,9 @@ public class QuestManager : MonoBehaviour
     {
         activeQuest = null;
         _isEngaged = false;
+        activeMapLocation.UpdateLocationStatus(MapLocation.LocationStatus.Available);
+        activeMapLocation = null;
+        CombatData.activeMapLocation = null;
     }
 
     public QuestUIManager GetManager()
@@ -52,7 +59,9 @@ public class QuestManager : MonoBehaviour
             // Show this quest has been exhausted
             uiManager.ShowQuestComplete(activeQuest.completionText, activeQuest.questTitle);
             activeQuest.CompleteQuest();
+            activeMapLocation.UpdateLocationStatus(MapLocation.LocationStatus.Complete);
             activeQuest = null;
+            activeMapLocation = null;
             _isEngaged = false;
             CombatData.isQuestEngaged = false;
             CombatData.activeQuest = null;
@@ -67,7 +76,8 @@ public class QuestManager : MonoBehaviour
             activeQuest = CombatData.activeQuest;
             _isEngaged = true;
             encounterIndex = CombatData.questEncounterIndex;
-
+            activeMapLocation = GetComponent<QuestSelection>().GetMapLocationByName(CombatData.activeMapLocation);
+            activeMapLocation.UpdateLocationStatus(MapLocation.LocationStatus.InProgress);
             activeQuest.CompleteEncounter();
             ProgressQuest();
         }

@@ -85,8 +85,20 @@ public class QuestSelection : MonoBehaviour
             // Show the quest information
             QuestUIManager uiManager = qm.GetManager();
             uiManager.gameObject.SetActive(true);
-            uiManager.UpdateUI(q);
+            uiManager.UpdateUI(q, tentativeMapLocation);
         }
         CombatData.lastMapLocation = targetLocation.position;
+    }
+
+    public MapLocation GetMapLocationByName(string name)
+    {
+        for (int i = 0; i < mapLocations.Count; i++)
+        {
+            if (mapLocations[i].GetName() == name)
+            {
+                return mapLocations[i];
+            }
+        }
+        return null;
     }
 }
